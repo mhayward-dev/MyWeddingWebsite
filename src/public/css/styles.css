@@ -662,20 +662,32 @@ body {
     
     .event-illustration {
         width: 100%;
-        max-width: 280px;
-        height: 180px;
-        margin-left: 0;
+        max-width: none;
+        height: 220px;
+        margin-left: 20px;
         margin-top: 15px;
     }
     
     .event-illustration--vertical {
         height: auto;
-        max-height: none;
+        max-height: 350px;
+        width: calc(100% - 20px);
+        display: flex;
+        justify-content: flex-start;
     }
     
     .event-illustration--vertical img {
         height: auto;
-        max-height: none;
+        max-height: 320px;
+        width: auto;
+        max-width: 100%;
+        margin-left: 0;
+        -webkit-mask-image: radial-gradient(ellipse 100% 95% at left center, black 60%, transparent 100%);
+        mask-image: radial-gradient(ellipse 100% 95% at left center, black 60%, transparent 100%);
+    }
+    
+    .timeline-event:has(.event-illustration) {
+        margin-bottom: 100px;
     }
     
     .event-details {
@@ -701,7 +713,16 @@ body {
     }
     
     .event-illustration {
-        height: 140px;
+        height: 180px;
+        margin-left: 20px;
+    }
+    
+    .event-illustration--vertical {
+        max-height: 300px;
+    }
+    
+    .event-illustration--vertical img {
+        max-height: 280px;
     }
     
     .event-icon {
@@ -729,16 +750,6 @@ body {
     background-color: var(--color-background-alt);
     position: relative;
     overflow: hidden;
-}
-
-.site-footer .botanical-decor {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    opacity: 0.3;
-    background-size: contain;
-    background-repeat: no-repeat;
-    pointer-events: none;
 }
 
 .site-footer .botanical-decor.bottom-left {
