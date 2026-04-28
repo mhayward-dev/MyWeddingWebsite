@@ -1,0 +1,773 @@
+/* Wedding Website - Hero Banner Styles */
+
+:root {
+    --color-primary: #a67c7c;
+    --color-primary-light: #c9a9a9;
+    --color-text: #6b5050;
+    --color-text-light: #8b7070;
+    --color-background: #f8f5f2;
+    --color-background-alt: #f3eeea;
+    --color-cream: #faf8f5;
+    --color-white: #ffffff;
+    --color-shadow: rgba(107, 80, 80, 0.15);
+    
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-script: 'Dancing Script', cursive;
+    --font-sans: 'Lato', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: 
+        linear-gradient(135deg, rgba(248, 245, 242, 0.95) 0%, rgba(250, 248, 245, 0.9) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23f5f0eb" width="100" height="100"/></svg>');
+    overflow: hidden;
+}
+
+/* Botanical Decorations */
+.botanical-decor {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    opacity: 0.3;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.botanical-decor.top-left {
+    top: 20px;
+    left: 20px;
+    background-image: url('../images/flower-decoration.svg');
+    transform: rotate(90deg);
+}
+
+.botanical-decor.top-right {
+    top: 20px;
+    right: 20px;
+    background-image: url('../images/flower-decoration.svg');
+    transform: rotate(-180deg);
+}
+
+.botanical-decor.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    background-image: url('../images/flower-decoration.svg');
+    transform: rotate(0deg);
+}
+
+.botanical-decor.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('../images/flower-decoration.svg');
+    transform: rotate(-90deg);
+}
+
+/* Hero Content Container */
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+/* Header Styles */
+.hero-header {
+    margin-bottom: 50px;
+}
+
+.couple-names {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+}
+
+.wedding-details {
+    font-family: var(--font-sans);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-weight: 300;
+    color: var(--color-text-light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Polaroid Gallery */
+.polaroid-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+/* Polaroid Base Styles */
+.polaroid {
+    transition: transform 0.4s ease, z-index 0.1s;
+}
+
+.polaroid:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    z-index: 10;
+}
+
+.polaroid-frame {
+    background: var(--color-white);
+    padding: 15px 15px 0px 15px;
+    box-shadow: 
+        0 4px 15px var(--color-shadow),
+        0 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+}
+
+.polaroid-image {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-primary-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.polaroid-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.polaroid-image.placeholder {
+    position: relative;
+}
+
+.polaroid-image.placeholder::after {
+    content: '📷';
+    font-size: 3rem;
+    position: absolute;
+    opacity: 0.3;
+}
+
+.polaroid-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: 15px;
+    text-align: center;
+    width: 200px;
+    height: 50px;
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Individual Polaroid Positions & Rotations */
+.polaroid-1 {
+    transform: rotate(-8deg);
+    margin-top: 30px;
+}
+
+.polaroid-2 {
+    transform: rotate(3deg) translateY(-20px);
+    z-index: 2;
+}
+
+.polaroid-3 {
+    transform: rotate(-4deg);
+    margin-top: 40px;
+}
+
+.polaroid-4 {
+    transform: rotate(6deg) translateY(-10px);
+}
+
+.polaroid-5 {
+    transform: rotate(-5deg);
+    margin-top: 25px;
+}
+
+.polaroid-6 {
+    transform: rotate(4deg) translateY(-15px);
+    z-index: 1;
+}
+
+.polaroid-7 {
+    transform: rotate(-7deg);
+    margin-top: 35px;
+}
+
+.polaroid-8 {
+    transform: rotate(5deg) translateY(-5px);
+}
+
+/* Footer Styles */
+.hero-footer {
+    margin-top: 20px;
+}
+
+.couple-names-small {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.wedding-details-small {
+    font-family: var(--font-sans);
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    font-weight: 300;
+    color: var(--color-text-light);
+    letter-spacing: 0.1em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .polaroid-gallery {
+        gap: 15px;
+    }
+    
+    .polaroid-image {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .polaroid-frame {
+        padding: 12px 12px 0px 12px;
+    }
+    
+    .polaroid-caption {
+        font-size: 1.1rem;
+        width: 160px;
+        height: 45px;
+    }
+    
+    .botanical-decor {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 650px) {
+    .polaroid-gallery {
+        gap: 10px;
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .polaroid-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .polaroid-frame {
+        padding: 8px 8px 0px 8px;
+    }
+    
+    .polaroid-caption {
+        font-size: 0.9rem;
+        width: 120px;
+        height: 30px;
+        margin-top: 8px;
+    }
+    
+    .botanical-decor {
+        width: 80px;
+        height: 80px;
+        opacity: 0.2;
+    }
+    
+    .hero {
+        padding: 60px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .polaroid-gallery {
+        gap: 8px;
+        justify-content: center;
+    }
+    
+    .polaroid-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .polaroid-frame {
+        padding: 6px 6px 0px 6px;
+    }
+    
+    .polaroid-caption {
+        font-size: 0.75rem;
+        width: 100px;
+        height: 25px;
+        margin-top: 6px;
+    }
+}
+
+/* Animation on load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes growDown {
+    from {
+        transform: translateX(-50%) scaleY(0);
+    }
+    to {
+        transform: translateX(-50%) scaleY(1);
+    }
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero-header {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* ================================
+   Timeline Section Styles
+   ================================ */
+
+.timeline-section {
+    padding: 80px 20px;
+    background-color: var(--color-background-alt);
+    min-height: 100vh;
+}
+
+.timeline-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-align: center;
+    color: var(--color-text);
+    margin-bottom: 60px;
+    opacity: 0;
+}
+
+.timeline-section.animate .timeline-title {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--color-text-light);
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+}
+
+.timeline-section.animate .timeline-line {
+    animation: growDown 1.5s ease-out forwards;
+}
+
+.timeline-event {
+    position: relative;
+    margin-bottom: 80px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    gap: 0;
+    opacity: 0;
+}
+
+.timeline-section.animate .timeline-event {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.timeline-section.animate .timeline-event:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.timeline-section.animate .timeline-event:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.timeline-section.animate .timeline-event:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.timeline-section.animate .timeline-event:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+.timeline-event:last-child {
+    margin-bottom: 0;
+}
+
+.event-content {
+    display: flex;
+    justify-content: flex-end;
+    grid-column: 1;
+}
+
+.event-details {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.event-connector {
+    grid-column: 2;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-background-alt);
+    border: 2px solid var(--color-text-light);
+    border-radius: 50%;
+    margin-top: 20px;
+    position: relative;
+    opacity: 0;
+}
+
+.timeline-section.animate .event-connector {
+    animation: popIn 0.5s ease-out forwards;
+}
+
+.timeline-section.animate .timeline-event:nth-child(2) .event-connector {
+    animation-delay: 0.5s;
+}
+
+.timeline-section.animate .timeline-event:nth-child(3) .event-connector {
+    animation-delay: 0.8s;
+}
+
+.timeline-section.animate .timeline-event:nth-child(4) .event-connector {
+    animation-delay: 1.1s;
+}
+
+.timeline-section.animate .timeline-event:nth-child(5) .event-connector {
+    animation-delay: 1.4s;
+}
+
+.event-connector::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    width: 30px;
+    height: 2px;
+    background-color: var(--color-text-light);
+    transform: translateY(-50%);
+}
+
+.event-illustration {
+    grid-column: 3;
+    width: 260px;
+    height: 195px;
+    background: transparent;
+    border-radius: 4px;
+    overflow: visible;
+    margin-left: 30px;
+}
+
+.event-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-mask-image: radial-gradient(ellipse 90% 90% at center, black 50%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 90% at center, black 50%, transparent 100%);
+}
+
+.event-illustration--vertical {
+    height: auto;
+    max-height: 350px;
+}
+
+.event-illustration--vertical img {
+    object-fit: contain;
+    height: auto;
+    max-height: 280px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 95% at center, black 60%, transparent 100%);
+    mask-image: radial-gradient(ellipse 85% 95% at center, black 60%, transparent 100%);
+}
+
+.event-illustration.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.event-illustration.placeholder::after {
+    content: '🏛️';
+    font-size: 3rem;
+    opacity: 0.4;
+}
+
+.event-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 12px;
+    color: var(--color-text);
+}
+
+.event-icon svg,
+.event-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: invert(48%) sepia(8%) saturate(700%) hue-rotate(314deg) brightness(89%) contrast(87%);
+}
+
+.event-time {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 8px;
+}
+
+.event-description {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
+/* Timeline responsive adjustments */
+@media (max-width: 900px) {
+    .timeline-container {
+        padding: 0 20px;
+    }
+    
+    .timeline-line {
+        left: 20px;
+        transform: none;
+    }
+    
+    .timeline-event {
+        display: flex;
+        flex-direction: column;
+        margin-left: 50px;
+        position: relative;
+    }
+    
+    .event-content {
+        justify-content: flex-start;
+    }
+    
+    .event-connector {
+        position: absolute;
+        left: -50px;
+        top: 20px;
+        margin-top: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--color-text-light);
+        border: none;
+        border-radius: 0;
+    }
+    
+    .event-connector::before {
+        display: none;
+    }
+    
+    .event-connector::after {
+        content: '';
+        position: absolute;
+        right: -6px;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        background-color: var(--color-background-alt);
+        border: 2px solid var(--color-text-light);
+        border-radius: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .event-illustration {
+        width: 100%;
+        max-width: 280px;
+        height: 180px;
+        margin-left: 0;
+        margin-top: 15px;
+    }
+    
+    .event-illustration--vertical {
+        height: auto;
+        max-height: none;
+    }
+    
+    .event-illustration--vertical img {
+        height: auto;
+        max-height: none;
+    }
+    
+    .event-details {
+        text-align: left;
+        align-items: flex-start;
+        padding-right: 0;
+        margin-left: 20px;
+    }
+    
+    .event-icon {
+        margin: 0 0 12px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-section {
+        padding: 60px 15px;
+    }
+    
+    .timeline-title {
+        letter-spacing: 0.2em;
+        margin-bottom: 40px;
+    }
+    
+    .event-illustration {
+        height: 140px;
+    }
+    
+    .event-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .timeline-event {
+        margin-bottom: 40px;
+    }
+}
+
+.polaroid-gallery {
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.hero-footer {
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Site Footer */
+.site-footer {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: var(--color-background-alt);
+    position: relative;
+    overflow: hidden;
+}
+
+.site-footer .botanical-decor {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    opacity: 0.3;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.site-footer .botanical-decor.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    background-image: url('../images/flower-decoration.svg');
+    transform: rotate(0deg);
+}
+
+.site-footer .botanical-decor.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('../images/flower-decoration.svg');
+    transform: rotate(-90deg);
+}
+
+.site-footer .couple-names-small {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.site-footer .wedding-details-small {
+    font-family: var(--font-sans);
+    font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+    font-weight: 300;
+    color: var(--color-text-light);
+    letter-spacing: 0.1em;
+}
