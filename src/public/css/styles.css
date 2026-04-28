@@ -10,7 +10,7 @@
     --color-cream: #faf8f5;
     --color-white: #ffffff;
     --color-shadow: rgba(107, 80, 80, 0.15);
-    
+
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-script: 'Dancing Script', cursive;
     --font-sans: 'Lato', Arial, sans-serif;
@@ -22,7 +22,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -41,7 +42,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    background: 
+    background:
         linear-gradient(135deg, rgba(248, 245, 242, 0.95) 0%, rgba(250, 248, 245, 0.9) 100%),
         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23f5f0eb" width="100" height="100"/></svg>');
     overflow: hidden;
@@ -142,7 +143,7 @@ body {
 .polaroid-frame {
     background: var(--color-white);
     padding: 15px 15px 0px 15px;
-    box-shadow: 
+    box-shadow:
         0 4px 15px var(--color-shadow),
         0 2px 5px rgba(0, 0, 0, 0.05);
     border-radius: 2px;
@@ -256,22 +257,22 @@ body {
     .polaroid-gallery {
         gap: 15px;
     }
-    
+
     .polaroid-image {
         width: 160px;
         height: 160px;
     }
-    
+
     .polaroid-frame {
         padding: 12px 12px 0px 12px;
     }
-    
+
     .polaroid-caption {
         font-size: 1.1rem;
         width: 160px;
         height: 45px;
     }
-    
+
     .botanical-decor {
         width: 120px;
         height: 120px;
@@ -284,29 +285,29 @@ body {
         padding: 10px;
         flex-wrap: wrap;
     }
-    
+
     .polaroid-image {
         width: 120px;
         height: 120px;
     }
-    
+
     .polaroid-frame {
         padding: 8px 8px 0px 8px;
     }
-    
+
     .polaroid-caption {
         font-size: 0.9rem;
         width: 120px;
         height: 30px;
         margin-top: 8px;
     }
-    
+
     .botanical-decor {
         width: 80px;
         height: 80px;
         opacity: 0.2;
     }
-    
+
     .hero {
         padding: 60px 10px;
     }
@@ -317,16 +318,16 @@ body {
         gap: 8px;
         justify-content: center;
     }
-    
+
     .polaroid-image {
         width: 100px;
         height: 100px;
     }
-    
+
     .polaroid-frame {
         padding: 6px 6px 0px 6px;
     }
-    
+
     .polaroid-caption {
         font-size: 0.75rem;
         width: 100px;
@@ -341,6 +342,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -352,6 +354,7 @@ body {
         opacity: 0;
         transform: translateX(-40px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -363,6 +366,7 @@ body {
         opacity: 0;
         transform: translateX(40px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -373,6 +377,7 @@ body {
     from {
         transform: translateX(-50%) scaleY(0);
     }
+
     to {
         transform: translateX(-50%) scaleY(1);
     }
@@ -383,9 +388,11 @@ body {
         opacity: 0;
         transform: scale(0);
     }
+
     70% {
         transform: scale(1.2);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -614,23 +621,23 @@ body {
     .timeline-container {
         padding: 0 20px;
     }
-    
+
     .timeline-line {
         left: 20px;
         transform: none;
     }
-    
+
     .timeline-event {
         display: flex;
         flex-direction: column;
         margin-left: 50px;
         position: relative;
     }
-    
+
     .event-content {
         justify-content: flex-start;
     }
-    
+
     .event-connector {
         position: absolute;
         left: -50px;
@@ -642,11 +649,11 @@ body {
         border: none;
         border-radius: 0;
     }
-    
+
     .event-connector::before {
         display: none;
     }
-    
+
     .event-connector::after {
         content: '';
         position: absolute;
@@ -659,23 +666,22 @@ body {
         border-radius: 50%;
         transform: translateY(-50%);
     }
-    
+
     .event-illustration {
         width: 100%;
-        max-width: none;
+        max-width: 400px;
         height: 220px;
         margin-left: 20px;
         margin-top: 15px;
     }
-    
+
     .event-illustration--vertical {
         height: auto;
         max-height: none;
-        width: calc(100% - 20px);
         display: flex;
         justify-content: flex-start;
     }
-    
+
     .event-illustration--vertical img {
         height: auto;
         max-height: none;
@@ -683,64 +689,82 @@ body {
         max-width: 320px;
         margin-left: 0;
     }
-    
+
     .timeline-event:has(.event-illustration) {
-        margin-bottom: 100px;
+        margin-bottom: 60px;
     }
-    
+
     .event-details {
         text-align: left;
         align-items: flex-start;
         padding-right: 0;
         margin-left: 20px;
     }
-    
+
     .event-icon {
         margin: 0 0 12px 0;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 450px) {
     .timeline-section {
         padding: 60px 15px;
     }
-    
+
     .timeline-title {
         letter-spacing: 0.2em;
         margin-bottom: 40px;
     }
-    
+
     .event-illustration {
         height: 240px;
         margin-left: 20px;
     }
-    
+
     .event-illustration--vertical {
         max-height: none;
-        width: calc(100% - 20px);
         display: block;
     }
-    
+
     .event-illustration--vertical img {
         height: auto;
         max-height: none;
-        width: 320px;
-        max-width: calc(100% - 20px);
         object-fit: contain;
         margin-left: 0;
     }
-    
+
     .event-icon {
         width: 40px;
         height: 40px;
     }
-    
+
     .timeline-event {
         margin-bottom: 40px;
     }
-    
+
     .timeline-event:has(.event-illustration--vertical) {
         margin-bottom: 250px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .timeline-event {
+        margin-bottom: 25px;
+    }
+
+    .timeline-event:has(.event-illustration) {
+        margin-bottom: 60px;
+    }
+
+    .timeline-event:has(.event-illustration--vertical) {
+        margin-bottom: 250px;
+    }
+}
+
+@media (max-width: 400px) {
+    .timeline-event:has(.event-illustration--vertical) {
+        margin-bottom: 175px;
     }
 }
 
