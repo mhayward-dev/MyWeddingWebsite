@@ -560,7 +560,7 @@ body {
 .event-illustration--vertical img {
     object-fit: contain;
     height: auto;
-    max-height: 280px;
+    max-height: none;
     -webkit-mask-image: radial-gradient(ellipse 85% 95% at center, black 60%, transparent 100%);
     mask-image: radial-gradient(ellipse 85% 95% at center, black 60%, transparent 100%);
 }
@@ -610,7 +610,7 @@ body {
 }
 
 /* Timeline responsive adjustments */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .timeline-container {
         padding: 0 20px;
     }
@@ -670,7 +670,7 @@ body {
     
     .event-illustration--vertical {
         height: auto;
-        max-height: 350px;
+        max-height: none;
         width: calc(100% - 20px);
         display: flex;
         justify-content: flex-start;
@@ -678,12 +678,10 @@ body {
     
     .event-illustration--vertical img {
         height: auto;
-        max-height: 320px;
-        width: auto;
-        max-width: 100%;
+        max-height: none;
+        width: 100%;
+        max-width: 320px;
         margin-left: 0;
-        -webkit-mask-image: radial-gradient(ellipse 100% 95% at left center, black 60%, transparent 100%);
-        mask-image: radial-gradient(ellipse 100% 95% at left center, black 60%, transparent 100%);
     }
     
     .timeline-event:has(.event-illustration) {
@@ -713,16 +711,23 @@ body {
     }
     
     .event-illustration {
-        height: 180px;
+        height: 240px;
         margin-left: 20px;
     }
     
     .event-illustration--vertical {
-        max-height: 300px;
+        max-height: none;
+        width: calc(100% - 20px);
+        display: block;
     }
     
     .event-illustration--vertical img {
-        max-height: 280px;
+        height: auto;
+        max-height: none;
+        width: 320px;
+        max-width: calc(100% - 20px);
+        object-fit: contain;
+        margin-left: 0;
     }
     
     .event-icon {
@@ -732,6 +737,10 @@ body {
     
     .timeline-event {
         margin-bottom: 40px;
+    }
+    
+    .timeline-event:has(.event-illustration--vertical) {
+        margin-bottom: 250px;
     }
 }
 
