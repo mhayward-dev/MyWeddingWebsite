@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@400;500;600&family=Kalam:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@400;500;600&family=Kalam:wght@400;700&family=Lato:wght@300;400&subset=latin,latin-ext&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Language Selector -->
     <div class="language-bar">
         <button class="lang-btn" data-lang="en" title="English">
-            <svg class="flag-icon" viewBox="0 0 60 30" width="32" height="20">
+            <svg class="flag-icon" viewBox="0 0 60 30" width="32" height="16">
                 <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
                 <path d="M0,0 v30 h60 v-30 z" fill="#00247d"/>
                 <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
@@ -35,7 +35,7 @@
                 <rect fill="#E30A17" width="1200" height="800"/>
                 <circle fill="#fff" cx="425" cy="400" r="200"/>
                 <circle fill="#E30A17" cx="475" cy="400" r="160"/>
-                <polygon fill="#fff" points="583,400 764,458 656,350 656,450 764,342"/>
+                <polygon fill="#fff" points="650,400 609,414 609,457 583,422 542,435 567,400 542,365 583,378 609,343 609,387"/>
             </svg>
         </button>
     </div>
@@ -48,14 +48,15 @@
         <div class="hero-content">
             <!-- Main heading -->
             <header class="hero-header">
-                <h1 class="couple-names">Cansu & Mark's<br>Wedding</h1>
+                <h1 class="couple-names" data-i18n="coupleNames">Cansu & Mark's<br>Wedding</h1>
                 <p class="wedding-details" data-i18n="weddingDate">12 September 2026 • Berlin</p>
             </header>
 
             <div class="hero-intro">
-                <p class="hero-intro-text" data-i18n="heroIntro1">We invite you to celebrate the registration of our marriage with us in Berlin.</p>
-                <p class="hero-intro-text" data-i18n="heroIntro2">We are really excited and happy if you could share this special moment with us.</p>
-                <p class="hero-intro-text" data-i18n="heroIntro3">Scroll down to RSVP and see our plan for the day.</p>
+                <p class="hero-intro-text" data-i18n="heroIntro1">Dear family and friends,</p>
+                <p class="hero-intro-text" data-i18n="heroIntro2">We are so excited to spend this special day with you and celebrate together.</p>
+                <p class="hero-intro-text" data-i18n="heroIntro3">We invite you to celebrate the registration of our marriage with us in Berlin, and we are really excited and happy if you could share this special moment with us.</p>
+                <p class="hero-intro-text" data-i18n="heroIntro4">Scroll down to RSVP and see our plan for the day.</p>
             </div>
 
             <div class="scroll-indicator">
@@ -90,9 +91,9 @@
                 <div class="polaroid polaroid-3">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo3.jpg" alt="Engaged!" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/photo5.jpg" alt="Nights out" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
-                        <div class="polaroid-caption">Engaged!</div>
+                        <div class="polaroid-caption">Nights out</div>
                     </div>
                 </div>
 
@@ -108,9 +109,9 @@
                 <div class="polaroid polaroid-5">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo5.jpg" alt="Nights out" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/photo3.jpg" alt="Engaged!" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
-                        <div class="polaroid-caption">Nights out</div>
+                        <div class="polaroid-caption">Engaged!</div>
                     </div>
                 </div>
 
@@ -146,69 +147,113 @@
 
     <!-- Timeline Section -->
     <section class="timeline-section">
-        <h2 class="timeline-title" data-i18n="timelineTitle">WEDDING DAY TIMELINE</h2>
+        <h2 class="timeline-title" data-i18n="timelineTitle">DAY'S SCHEDULE</h2>
         <p class="timeline-intro" data-i18n="timelineIntro">Join us as we celebrate our special day</p>
+        
+        <div class="schedule-info-box">
+            <span class="info-box-icon">!</span>
+            <p data-i18n="scheduleInfo1">Please arrive no later than 3:00 p.m. so we can all start the ceremony together in a relaxed atmosphere.</p>
+            <p data-i18n="scheduleInfo2">Our civil ceremony will begin at 3:20 p.m. and will be conducted in German and English.</p>
+            <p data-i18n="scheduleInfo3">After exchanging rings, we would like to take photos together in the adjacent park, weather permitting. We will set up a small backdrop for this.</p>
+            <p data-i18n="scheduleInfo4">Afterward, we will all go to the restaurant, where we will enjoy a three-course meal, the cutting of the cake, and some dancing to round off the evening.</p>
+        </div>
         
         <div class="timeline-container">
             <div class="timeline-line"></div>
             
-            <!-- Event 1: Wedding Ceremony -->
+            <!-- Event 1: Arrival -->
+            <div class="timeline-event">
+                <div class="event-content">
+                    <div class="event-details">
+                        <div class="event-icon">
+                            <img src="images/arrival.svg" alt="Arrival" onerror="this.style.display='none'; this.parentElement.innerHTML='🚶';">
+                        </div>
+                        <p class="event-time" data-i18n="event1Time">3:00 PM</p>
+                        <p class="event-description" data-i18n="event1Desc">Arrival</p>
+                    </div>
+                </div>
+                <div class="event-connector"></div>
+            </div>
+            
+            <!-- Event 2: Ceremony begins -->
             <div class="timeline-event">
                 <div class="event-content">
                     <div class="event-details">
                         <div class="event-icon">
                             <img src="images/rings.svg" alt="Wedding rings">
                         </div>
-                        <p class="event-time">3:00 PM</p>
-                        <p class="event-description" data-i18n="event1Desc">Wedding Ceremony<br>at Standesamt Schöneberg</p>
+                        <p class="event-time" data-i18n="event2Time">3:20 PM</p>
+                        <p class="event-description" data-i18n="event2Desc">Ceremony begins</p>
                     </div>
                 </div>
                 <div class="event-connector"></div>
-                <div class="event-illustration">
-                    <img src="images/venue-dinner.jpg" alt="Standesamt Schöneberg" onerror="this.parentElement.classList.add('placeholder')">
-                </div>
             </div>
             
-            <!-- Event 2: Wedding Photos -->
+            <!-- Event 3: Congratulations & photos -->
             <div class="timeline-event">
                 <div class="event-content">
                     <div class="event-details">
                         <div class="event-icon">
                             <img src="images/camera.svg" alt="Camera">
                         </div>
-                        <p class="event-time">3:30 PM</p>
-                        <p class="event-description" data-i18n="event2Desc">Wedding Photos outside <br> the registry office</p>
+                        <p class="event-time" data-i18n="event3Time">Around 4:00 PM</p>
+                        <p class="event-description" data-i18n="event3Desc">Congratulations &<br>photos in the park</p>
                     </div>
                 </div>
                 <div class="event-connector"></div>
             </div>
             
-            <!-- Event 3: Dinner -->
+            <!-- Event 4: Transfer to restaurant -->
+            <div class="timeline-event">
+                <div class="event-content">
+                    <div class="event-details">
+                        <div class="event-icon">
+                            <img src="images/transfer.svg" alt="Transfer" onerror="this.style.display='none'; this.parentElement.innerHTML='🚗';">
+                        </div>
+                        <p class="event-time" data-i18n="event4Time">Around 5:00 PM</p>
+                        <p class="event-description" data-i18n="event4Desc">Transfer to the restaurant</p>
+                    </div>
+                </div>
+                <div class="event-connector"></div>
+            </div>
+            
+            <!-- Event 5: Dinner -->
             <div class="timeline-event">
                 <div class="event-content">
                     <div class="event-details">
                         <div class="event-icon">
                             <img src="images/dinner.svg" alt="Dinner">
                         </div>
-                        <p class="event-time">6:00 PM</p>
-                        <p class="event-description" data-i18n="event3Desc">Dinner at Osmanya</p>
+                        <p class="event-time" data-i18n="event5Time">Around 6:00 PM</p>
+                        <p class="event-description" data-i18n="event5Desc">Dinner (3-course meal)</p>
                     </div>
                 </div>
                 <div class="event-connector"></div>
-                <div class="event-illustration event-illustration--vertical">
-                    <img src="images/venue-ceremony.jpg" alt="Osmanya Restaurant" onerror="this.parentElement.classList.add('placeholder')">
-                </div>
             </div>
             
-            <!-- Event 4: Music & Dancing -->
+            <!-- Event 6: Cake cutting -->
             <div class="timeline-event">
                 <div class="event-content">
                     <div class="event-details">
                         <div class="event-icon">
-                            <img src="images/dj.svg" alt="Music and dancing">
+                            <img src="images/cake.svg" alt="Cake" onerror="this.style.display='none'; this.parentElement.innerHTML='🎂';">
                         </div>
-                        <p class="event-time">8:00 PM</p>
-                        <p class="event-description" data-i18n="event4Desc">Music & Dancing at<br>Osmanya</p>
+                        <p class="event-time" data-i18n="event6Time">Around 8:00 PM</p>
+                        <p class="event-description" data-i18n="event6Desc">Cake cutting</p>
+                    </div>
+                </div>
+                <div class="event-connector"></div>
+            </div>
+            
+            <!-- Event 7: Dancing & reception -->
+            <div class="timeline-event">
+                <div class="event-content">
+                    <div class="event-details">
+                        <div class="event-icon">
+                            <img src="images/dancer.svg" alt="Music and dancing">
+                        </div>
+                        <p class="event-time" data-i18n="event7Time">From around 9:00 PM</p>
+                        <p class="event-description" data-i18n="event7Desc">Dancing & reception</p>
                     </div>
                 </div>
                 <div class="event-connector"></div>
@@ -224,7 +269,9 @@
         <div class="venues-container">
             <!-- Ceremony Venue -->
             <div class="venue-card">
-                <div class="venue-icon">💒</div>
+                <div class="venue-icon">
+                    <img src="images/venue-dinner.jpg" alt="Standesamt Schöneberg">
+                </div>
                 <h3 class="venue-name">Standesamt Schöneberg</h3>
                 <p class="venue-type" data-i18n="venue1Type">Wedding Ceremony</p>
                 <p class="venue-address">John-F.-Kennedy-Platz 1, 10825 Berlin</p>
@@ -239,7 +286,9 @@
             
             <!-- Dinner Venue -->
             <div class="venue-card">
-                <div class="venue-icon">🍽️</div>
+                <div class="venue-icon">
+                    <img src="images/venue-ceremony.jpg" alt="Osmanya">
+                </div>
                 <h3 class="venue-name">Osmanya</h3>
                 <p class="venue-type" data-i18n="venue2Type">Dinner & Celebration</p>
                 <p class="venue-address">Birkenstraße 17, 10559 Berlin</p>
@@ -258,14 +307,17 @@
     <footer class="site-footer">
         <div class="botanical-decor bottom-left"></div>
         <div class="botanical-decor bottom-right"></div>
-        <h2 class="couple-names-small">Cansu & Mark's <br> Wedding</h2>
+        <h2 class="couple-names-small" data-i18n="coupleNames">Cansu & Mark's <br> Wedding</h2>
         <p class="wedding-details-small" data-i18n="weddingDate">12 September 2026 • Berlin</p>
     </footer>
 
     <script>
-        // Animate timeline when it comes into view
+        // Animate sections when they come into view
         const timelineSection = document.querySelector('.timeline-section');
+        const timelineContainer = document.querySelector('.timeline-container');
+        const directionsSection = document.querySelector('.directions-section');
         
+        // Normal observer for info box and directions
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -277,24 +329,62 @@
             threshold: 0.15
         });
         
+        // Delayed observer for timeline events
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('timeline-animate');
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.35,
+            rootMargin: '-50px 0px'
+        });
+        
         if (timelineSection) {
             observer.observe(timelineSection);
+        }
+        
+        if (timelineContainer) {
+            timelineObserver.observe(timelineContainer);
+        }
+        
+        if (directionsSection) {
+            observer.observe(directionsSection);
         }
 
         // Translation system
         const translations = {
             en: {
+                pageTitle: "Cansu & Mark's - Wedding",
+                coupleNames: "Cansu & Mark's<br>Wedding",
                 weddingDate: '12 September 2026 • Berlin',
-                heroIntro1: 'We invite you to celebrate the registration of our marriage with us in Berlin.',
-                heroIntro2: 'We are really excited and happy if you could share this special moment with us.',
-                heroIntro3: 'Scroll down to RSVP and see our plan for the day.',
+                heroIntro1: 'Dear family and friends,',
+                heroIntro2: 'We are so excited to spend this special day with you and celebrate together.',
+                heroIntro3: 'We invite you to celebrate the registration of our marriage with us in Berlin, and we are really excited and happy if you could share this special moment with us.',
+                heroIntro4: 'Scroll down to RSVP and see our plan for the day.',
                 scrollDown: 'Scroll down',
-                timelineTitle: 'WEDDING DAY TIMELINE',
+                timelineTitle: "DAY'S SCHEDULE",
                 timelineIntro: 'Join us as we celebrate our special day',
-                event1Desc: 'Wedding Ceremony<br>at Standesamt Schöneberg',
-                event2Desc: 'Wedding Photos outside<br>the registry office',
-                event3Desc: 'Dinner at Osmanya',
-                event4Desc: 'Music & Dancing at<br>Osmanya',
+                scheduleInfo1: 'Please arrive no later than 3:00 p.m. so we can all start the ceremony together in a relaxed atmosphere.',
+                scheduleInfo2: 'Our civil ceremony will begin at 3:20 p.m. and will be conducted in German and English.',
+                scheduleInfo3: 'After exchanging rings, we would like to take photos together in the adjacent park, weather permitting. We will also set up a small backdrop for this.',
+                scheduleInfo4: 'Afterward, we will all go to the restaurant, where we will enjoy a three-course meal, the cutting of the cake, and some dancing to round off the evening.',
+                event1Time: '3:00 PM',
+                event1Desc: 'Arrival',
+                event2Time: '3:20 PM',
+                event2Desc: 'Ceremony begins',
+                event3Time: 'Around 4:00 PM',
+                event3Desc: 'Congratulations &<br>photos in the park',
+                event4Time: 'Around 5:00 PM',
+                event4Desc: 'Transfer to the restaurant',
+                event5Time: 'Around 6:00 PM',
+                event5Desc: 'Dinner (3-course meal)',
+                event6Time: 'Around 8:00 PM',
+                event6Desc: 'Cake cutting',
+                event7Time: 'From around 9:00 PM',
+                event7Desc: 'Dancing & reception',
                 directionsTitle: 'DIRECTIONS',
                 directionsIntro: 'Find your way to our venues',
                 venue1Type: 'Wedding Ceremony',
@@ -302,17 +392,34 @@
                 getDirections: 'Get Directions'
             },
             de: {
+                pageTitle: 'Cansu & Marks - Hochzeit',
+                coupleNames: 'Cansu & Marks<br>Hochzeit',
                 weddingDate: '12. September 2026 • Berlin',
-                heroIntro1: 'Wir laden euch ein, die standesamtliche Trauung mit uns in Berlin zu feiern.',
-                heroIntro2: 'Wir freuen uns sehr, wenn ihr diesen besonderen Moment mit uns teilt.',
-                heroIntro3: 'Scrolle nach unten, um zu antworten und unseren Tagesplan zu sehen.',
+                heroIntro1: 'Liebe Familie und Freunde,',
+                heroIntro2: 'Wir freuen uns sehr, diesen besonderen Tag mit euch zu verbringen und gemeinsam zu feiern.',
+                heroIntro3: 'Wir laden euch ein, die standesamtliche Trauung mit uns in Berlin zu feiern, und wir würden uns sehr freuen, wenn ihr diesen besonderen Moment mit uns teilen könntet.',
+                heroIntro4: 'Scrollt nach unten, um zu antworten und unseren Tagesplan zu sehen.',
                 scrollDown: 'Nach unten scrollen',
                 timelineTitle: 'TAGESABLAUF',
                 timelineIntro: 'Begleitet uns an unserem besonderen Tag',
-                event1Desc: 'Standesamtliche Trauung<br>im Standesamt Schöneberg',
-                event2Desc: 'Hochzeitsfotos vor<br>dem Standesamt',
-                event3Desc: 'Abendessen im Osmanya',
-                event4Desc: 'Musik & Tanzen<br>im Osmanya',
+                scheduleInfo1: 'Bitte seid spätestens um 15:00 Uhr vor Ort, damit wir alle gemeinsam entspannt in die Trauung starten können.',
+                scheduleInfo2: 'Unsere standesamtliche Trauung beginnt um 15:20 Uhr und wird auf Deutsch und Englisch stattfinden.',
+                scheduleInfo3: 'Nach dem Ringtausch möchten wir – wenn das Wetter mitspielt – im angrenzenden Park gemeinsam Fotos machen. Dafür werden wir eine kleine Fotokulisse vorbereiten.',
+                scheduleInfo4: 'Anschließend fahren wir gemeinsam zum Restaurant, wo wir den Abend bei einem 3-Gänge-Menü, dem Anschneiden der Torte und Tanz entspannt ausklingen lassen.',
+                event1Time: '15:00 Uhr',
+                event1Desc: 'Ankunft',
+                event2Time: '15:20 Uhr',
+                event2Desc: 'Trauung beginnt',
+                event3Time: 'ca. 16:00 Uhr',
+                event3Desc: 'Gratulationen &<br>Fotos im Park',
+                event4Time: 'ca. 17:00 Uhr',
+                event4Desc: 'Transfer zum Restaurant',
+                event5Time: 'ca. 18:00 Uhr',
+                event5Desc: 'Abendessen (3-Gänge-Menü)',
+                event6Time: 'ca. 20:00 Uhr',
+                event6Desc: 'Tortenanschnitt',
+                event7Time: 'ab ca. 21:00 Uhr',
+                event7Desc: 'Tanzen & Empfang',
                 directionsTitle: 'ANFAHRT',
                 directionsIntro: 'So findet ihr zu unseren Veranstaltungsorten',
                 venue1Type: 'Standesamtliche Trauung',
@@ -320,17 +427,34 @@
                 getDirections: 'Wegbeschreibung'
             },
             tr: {
+                pageTitle: "Cansu & Mark'ın - Düğünü",
+                coupleNames: "Cansu & Mark'ın<br>Düğünü",
                 weddingDate: '12 Eylül 2026 • Berlin',
-                heroIntro1: 'Sizi Berlin\'de nikah törenimizi kutlamaya davet ediyoruz.',
-                heroIntro2: 'Bu özel anı bizimle paylaşırsanız çok mutlu oluruz.',
-                heroIntro3: 'Katılım bilgisi vermek ve günün programını görmek için aşağı kaydırın.',
+                heroIntro1: 'Sevgili aile ve arkadaşlar,',
+                heroIntro2: 'Bu özel günü sizinle geçirmek ve birlikte kutlamak için çok heyecanlıyız.',
+                heroIntro3: 'Sizi Berlin\'de nikah törenimizi kutlamaya davet ediyoruz ve bu özel anı bizimle paylaşırsanız çok mutlu oluruz.',
+                heroIntro4: 'RSVP yapmak ve günün planını görmek için aşağı kaydırın.',
                 scrollDown: 'Aşağı kaydır',
-                timelineTitle: 'DÜĞÜN GÜNÜ PROGRAMI',
+                timelineTitle: 'GÜNÜN PROGRAMI',
                 timelineIntro: 'Özel günümüzü kutlarken bize katılın',
-                event1Desc: 'Nikah Töreni<br>Standesamt Schöneberg',
-                event2Desc: 'Düğün Fotoğrafları<br>nikah dairesinin önünde',
-                event3Desc: 'Osmanya\'da Akşam Yemeği',
-                event4Desc: 'Müzik & Dans<br>Osmanya',
+                scheduleInfo1: 'Lütfen en geç saat 15:00\'de gelin, böylece törene hep birlikte rahat bir atmosferde başlayalım.',
+                scheduleInfo2: 'Resmi nikah törenimiz saat 15:20\'de başlayacak ve Almanca ile İngilizce olarak gerçekleştirilecektir.',
+                scheduleInfo3: 'Yüzük takma işleminden sonra, hava izin verirse, bitişikteki parkta birlikte fotoğraf çekmek istiyoruz. Bunun için küçük bir fon hazırlayacağız.',
+                scheduleInfo4: 'Ardından hep birlikte restorana gideceğiz, burada üç çeşit yemek yiyecek, pasta keseceğiz ve akşamı biraz dansla taçlandıracağız.',
+                event1Time: '15:00',
+                event1Desc: 'Varış',
+                event2Time: '15:20',
+                event2Desc: 'Tören başlıyor',
+                event3Time: 'yaklaşık 16:00',
+                event3Desc: 'Tebrikler &<br>parkta fotoğraflar',
+                event4Time: 'yaklaşık 17:00',
+                event4Desc: 'Restorana transfer',
+                event5Time: 'yaklaşık 18:00',
+                event5Desc: 'Akşam yemeği (3 çeşit)',
+                event6Time: 'yaklaşık 20:00',
+                event6Desc: 'Pasta kesimi',
+                event7Time: 'yaklaşık 21:00\'den itibaren',
+                event7Desc: 'Dans & resepsiyon',
                 directionsTitle: 'YOL TARİFİ',
                 directionsIntro: 'Mekanlarımıza nasıl ulaşırsınız',
                 venue1Type: 'Nikah Töreni',
@@ -347,6 +471,11 @@
                 }
             });
             
+            // Update page title
+            if (translations[lang] && translations[lang].pageTitle) {
+                document.title = translations[lang].pageTitle;
+            }
+            
             // Update active button state
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.lang === lang);
@@ -359,13 +488,29 @@
             document.documentElement.lang = lang;
         }
 
+        // Detect browser language and map to supported languages
+        function detectLanguage() {
+            const supportedLanguages = ['en', 'de', 'tr'];
+            const browserLanguages = navigator.languages || [navigator.language || navigator.userLanguage];
+            
+            for (const lang of browserLanguages) {
+                // Get the primary language code (e.g., 'en' from 'en-US')
+                const primaryLang = lang.split('-')[0].toLowerCase();
+                if (supportedLanguages.includes(primaryLang)) {
+                    return primaryLang;
+                }
+            }
+            
+            return 'en'; // Default fallback
+        }
+
         // Initialize language buttons
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
         });
 
-        // Load saved language or default to English
-        const savedLang = localStorage.getItem('wedding-lang') || 'en';
+        // Load saved language, or detect from browser, or default to English
+        const savedLang = localStorage.getItem('wedding-lang') || detectLanguage();
         setLanguage(savedLang);
     </script>
 </body>
