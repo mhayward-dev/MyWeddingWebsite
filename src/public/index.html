@@ -11,6 +11,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@400;500;600&family=Kalam:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-bar">
+        <button class="lang-btn" data-lang="en" title="English">
+            <svg class="flag-icon" viewBox="0 0 60 30" width="32" height="20">
+                <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+                <path d="M0,0 v30 h60 v-30 z" fill="#00247d"/>
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+                <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#cf142b" stroke-width="4"/>
+                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+                <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" stroke-width="6"/>
+            </svg>
+        </button>
+        <button class="lang-btn" data-lang="de" title="Deutsch">
+            <svg class="flag-icon" viewBox="0 0 5 3" width="32" height="20">
+                <rect width="5" height="3" fill="#000"/>
+                <rect width="5" height="2" y="1" fill="#D00"/>
+                <rect width="5" height="1" y="2" fill="#FFCE00"/>
+            </svg>
+        </button>
+        <button class="lang-btn" data-lang="tr" title="Türkçe">
+            <svg class="flag-icon" viewBox="0 0 1200 800" width="32" height="20">
+                <rect fill="#E30A17" width="1200" height="800"/>
+                <circle fill="#fff" cx="425" cy="400" r="200"/>
+                <circle fill="#E30A17" cx="475" cy="400" r="160"/>
+                <polygon fill="#fff" points="583,400 764,458 656,350 656,450 764,342"/>
+            </svg>
+        </button>
+    </div>
+
     <section class="hero">
         <!-- Decorative botanical elements -->
         <div class="botanical-decor top-left"></div>
@@ -19,9 +48,24 @@
         <div class="hero-content">
             <!-- Main heading -->
             <header class="hero-header">
-                <h1 class="couple-names">Cansu & Mark</h1>
-                <p class="wedding-details">12 September 2026 • Berlin</p>
+                <h1 class="couple-names">Cansu & Mark's<br>Wedding</h1>
+                <p class="wedding-details" data-i18n="weddingDate">12 September 2026 • Berlin</p>
             </header>
+
+            <div class="hero-intro">
+                <p class="hero-intro-text" data-i18n="heroIntro1">We invite you to celebrate the registration of our marriage with us in Berlin.</p>
+                <p class="hero-intro-text" data-i18n="heroIntro2">We are really excited and happy if you could share this special moment with us.</p>
+                <p class="hero-intro-text" data-i18n="heroIntro3">Scroll down to RSVP and see our plan for the day.</p>
+            </div>
+
+            <div class="scroll-indicator">
+                <span class="scroll-text" data-i18n="scrollDown">Scroll down</span>
+                <div class="scroll-arrows">
+                    <span class="scroll-arrow">&#8595;</span>
+                    <span class="scroll-arrow">&#8595;</span>
+                    <span class="scroll-arrow">&#8595;</span>
+                </div>
+            </div>
 
             <!-- Polaroid photo gallery -->
             <div class="polaroid-gallery">
@@ -102,7 +146,8 @@
 
     <!-- Timeline Section -->
     <section class="timeline-section">
-        <h2 class="timeline-title">WEDDING DAY TIMELINE</h2>
+        <h2 class="timeline-title" data-i18n="timelineTitle">WEDDING DAY TIMELINE</h2>
+        <p class="timeline-intro" data-i18n="timelineIntro">Join us as we celebrate our special day</p>
         
         <div class="timeline-container">
             <div class="timeline-line"></div>
@@ -115,7 +160,7 @@
                             <img src="images/rings.svg" alt="Wedding rings">
                         </div>
                         <p class="event-time">3:00 PM</p>
-                        <p class="event-description">Wedding Ceremony<br>at Standesamt Schöneberg</p>
+                        <p class="event-description" data-i18n="event1Desc">Wedding Ceremony<br>at Standesamt Schöneberg</p>
                     </div>
                 </div>
                 <div class="event-connector"></div>
@@ -132,7 +177,7 @@
                             <img src="images/camera.svg" alt="Camera">
                         </div>
                         <p class="event-time">3:30 PM</p>
-                        <p class="event-description">Wedding Photos outside <br> the registry</p>
+                        <p class="event-description" data-i18n="event2Desc">Wedding Photos outside <br> the registry office</p>
                     </div>
                 </div>
                 <div class="event-connector"></div>
@@ -146,7 +191,7 @@
                             <img src="images/dinner.svg" alt="Dinner">
                         </div>
                         <p class="event-time">6:00 PM</p>
-                        <p class="event-description">Dinner at Osmanya</p>
+                        <p class="event-description" data-i18n="event3Desc">Dinner at Osmanya</p>
                     </div>
                 </div>
                 <div class="event-connector"></div>
@@ -163,10 +208,48 @@
                             <img src="images/dj.svg" alt="Music and dancing">
                         </div>
                         <p class="event-time">8:00 PM</p>
-                        <p class="event-description">Music & Dancing at<br>Osmanya</p>
+                        <p class="event-description" data-i18n="event4Desc">Music & Dancing at<br>Osmanya</p>
                     </div>
                 </div>
                 <div class="event-connector"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directions Section -->
+    <section class="directions-section">
+        <h2 class="directions-title" data-i18n="directionsTitle">DIRECTIONS</h2>
+        <p class="directions-intro" data-i18n="directionsIntro">Find your way to our venues</p>
+        
+        <div class="venues-container">
+            <!-- Ceremony Venue -->
+            <div class="venue-card">
+                <div class="venue-icon">💒</div>
+                <h3 class="venue-name">Standesamt Schöneberg</h3>
+                <p class="venue-type" data-i18n="venue1Type">Wedding Ceremony</p>
+                <p class="venue-address">John-F.-Kennedy-Platz 1, 10825 Berlin</p>
+                <a href="https://maps.app.goo.gl/TT5zAgsGszuawgca6" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="directions-link">
+                    <span class="link-icon">📍</span>
+                    <span data-i18n="getDirections">Get Directions</span>
+                </a>
+            </div>
+            
+            <!-- Dinner Venue -->
+            <div class="venue-card">
+                <div class="venue-icon">🍽️</div>
+                <h3 class="venue-name">Osmanya</h3>
+                <p class="venue-type" data-i18n="venue2Type">Dinner & Celebration</p>
+                <p class="venue-address">Birkenstraße 17, 10559 Berlin</p>
+                <a href="https://maps.app.goo.gl/fHjJjrMHsbhvBLz49" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="directions-link">
+                    <span class="link-icon">📍</span>
+                    <span data-i18n="getDirections">Get Directions</span>
+                </a>
             </div>
         </div>
     </section>
@@ -175,8 +258,8 @@
     <footer class="site-footer">
         <div class="botanical-decor bottom-left"></div>
         <div class="botanical-decor bottom-right"></div>
-        <h2 class="couple-names-small">Cansu & Mark</h2>
-        <p class="wedding-details-small">12 September 2026 • Berlin</p>
+        <h2 class="couple-names-small">Cansu & Mark's <br> Wedding</h2>
+        <p class="wedding-details-small" data-i18n="weddingDate">12 September 2026 • Berlin</p>
     </footer>
 
     <script>
@@ -197,6 +280,93 @@
         if (timelineSection) {
             observer.observe(timelineSection);
         }
+
+        // Translation system
+        const translations = {
+            en: {
+                weddingDate: '12 September 2026 • Berlin',
+                heroIntro1: 'We invite you to celebrate the registration of our marriage with us in Berlin.',
+                heroIntro2: 'We are really excited and happy if you could share this special moment with us.',
+                heroIntro3: 'Scroll down to RSVP and see our plan for the day.',
+                scrollDown: 'Scroll down',
+                timelineTitle: 'WEDDING DAY TIMELINE',
+                timelineIntro: 'Join us as we celebrate our special day',
+                event1Desc: 'Wedding Ceremony<br>at Standesamt Schöneberg',
+                event2Desc: 'Wedding Photos outside<br>the registry office',
+                event3Desc: 'Dinner at Osmanya',
+                event4Desc: 'Music & Dancing at<br>Osmanya',
+                directionsTitle: 'DIRECTIONS',
+                directionsIntro: 'Find your way to our venues',
+                venue1Type: 'Wedding Ceremony',
+                venue2Type: 'Dinner & Celebration',
+                getDirections: 'Get Directions'
+            },
+            de: {
+                weddingDate: '12. September 2026 • Berlin',
+                heroIntro1: 'Wir laden euch ein, die standesamtliche Trauung mit uns in Berlin zu feiern.',
+                heroIntro2: 'Wir freuen uns sehr, wenn ihr diesen besonderen Moment mit uns teilt.',
+                heroIntro3: 'Scrolle nach unten, um zu antworten und unseren Tagesplan zu sehen.',
+                scrollDown: 'Nach unten scrollen',
+                timelineTitle: 'TAGESABLAUF',
+                timelineIntro: 'Begleitet uns an unserem besonderen Tag',
+                event1Desc: 'Standesamtliche Trauung<br>im Standesamt Schöneberg',
+                event2Desc: 'Hochzeitsfotos vor<br>dem Standesamt',
+                event3Desc: 'Abendessen im Osmanya',
+                event4Desc: 'Musik & Tanzen<br>im Osmanya',
+                directionsTitle: 'ANFAHRT',
+                directionsIntro: 'So findet ihr zu unseren Veranstaltungsorten',
+                venue1Type: 'Standesamtliche Trauung',
+                venue2Type: 'Abendessen & Feier',
+                getDirections: 'Wegbeschreibung'
+            },
+            tr: {
+                weddingDate: '12 Eylül 2026 • Berlin',
+                heroIntro1: 'Sizi Berlin\'de nikah törenimizi kutlamaya davet ediyoruz.',
+                heroIntro2: 'Bu özel anı bizimle paylaşırsanız çok mutlu oluruz.',
+                heroIntro3: 'Katılım bilgisi vermek ve günün programını görmek için aşağı kaydırın.',
+                scrollDown: 'Aşağı kaydır',
+                timelineTitle: 'DÜĞÜN GÜNÜ PROGRAMI',
+                timelineIntro: 'Özel günümüzü kutlarken bize katılın',
+                event1Desc: 'Nikah Töreni<br>Standesamt Schöneberg',
+                event2Desc: 'Düğün Fotoğrafları<br>nikah dairesinin önünde',
+                event3Desc: 'Osmanya\'da Akşam Yemeği',
+                event4Desc: 'Müzik & Dans<br>Osmanya',
+                directionsTitle: 'YOL TARİFİ',
+                directionsIntro: 'Mekanlarımıza nasıl ulaşırsınız',
+                venue1Type: 'Nikah Töreni',
+                venue2Type: 'Akşam Yemeği & Kutlama',
+                getDirections: 'Yol Tarifi Al'
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            
+            // Save preference
+            localStorage.setItem('wedding-lang', lang);
+            
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Initialize language buttons
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        // Load saved language or default to English
+        const savedLang = localStorage.getItem('wedding-lang') || 'en';
+        setLanguage(savedLang);
     </script>
 </body>
 </html>
