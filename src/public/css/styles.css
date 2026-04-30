@@ -175,6 +175,36 @@ body {
     letter-spacing: 0.01em;
 }
 
+/* RSVP CTA Button */
+.rsvp-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-white);
+    background: var(--color-primary);
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.7s forwards;
+}
+
+.rsvp-cta:hover {
+    background: var(--color-text);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--color-shadow);
+}
+
+.rsvp-cta:active {
+    transform: translateY(-1px);
+}
+
 /* Scroll Indicator */
 .scroll-indicator {
     display: flex;
@@ -182,7 +212,8 @@ body {
     align-items: center;
     gap: 0;
     margin-bottom: 30px;
-    animation: fadeInOut 2s ease-in-out infinite;
+    opacity: 0;
+    animation: scrollIndicatorEntrance 0.8s ease-out 1s forwards, fadeInOut 2s ease-in-out 1.8s infinite;
 }
 
 .scroll-text {
@@ -206,6 +237,17 @@ body {
     color: var(--color-primary);
     line-height: 1;
     opacity: 0.7;
+}
+
+@keyframes scrollIndicatorEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInOut {
@@ -870,6 +912,43 @@ body {
     animation: fadeInUp 1s ease-out 0.6s both;
 }
 
+/* ================================
+   RSVP CTA Section Styles
+   ================================ */
+
+.rsvp-section {
+    padding: 80px 20px;
+    background-color: var(--color-background);
+    text-align: center;
+}
+
+.rsvp-section-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.rsvp-section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.rsvp-section-text {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.rsvp-cta-bottom {
+    display: inline-block;
+}
+
 /* Site Footer */
 .site-footer {
     text-align: center;
@@ -962,9 +1041,9 @@ body {
 }
 
 .venue-icon {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    margin-bottom: 20px;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
     border-radius: 6px;
     overflow: hidden;
 }

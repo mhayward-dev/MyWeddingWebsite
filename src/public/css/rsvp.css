@@ -1,0 +1,352 @@
+/* RSVP Page Styles */
+
+.rsvp-section {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background:
+        linear-gradient(135deg, rgba(248, 245, 242, 0.95) 0%, rgba(250, 248, 245, 0.9) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23f5f0eb" width="100" height="100"/></svg>');
+    overflow: hidden;
+}
+
+.rsvp-content {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.rsvp-header {
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.rsvp-intro {
+    margin-bottom: 40px;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.rsvp-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--color-text);
+    margin-bottom: 10px;
+}
+
+.rsvp-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-light);
+}
+
+/* Required Field Indicator */
+.required-indicator {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.required-note {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+/* Form Styles */
+.rsvp-form {
+    background: var(--color-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px var(--color-shadow);
+    text-align: left;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-text);
+    background: var(--color-background);
+    border: 2px solid var(--color-background-alt);
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(166, 124, 124, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--color-text-light);
+    opacity: 0.7;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236b5050' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 45px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Radio Button Group */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 14px 16px;
+    background: var(--color-background);
+    border: 2px solid var(--color-background-alt);
+    border-radius: 8px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.radio-option:hover {
+    border-color: var(--color-primary-light);
+}
+
+.radio-option input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-text-light);
+    border-radius: 50%;
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.radio-option input[type="radio"]:checked {
+    border-color: var(--color-primary);
+}
+
+.radio-option input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: var(--color-primary);
+    border-radius: 50%;
+}
+
+.radio-option input[type="radio"]:checked + .radio-label {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.radio-label {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+/* Guest count animation */
+.guest-count-group,
+.dietary-group {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 16px 32px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--color-white);
+    background: var(--color-primary);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: var(--color-text);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--color-shadow);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Confirmation Message */
+.rsvp-confirmation {
+    background: var(--color-white);
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px var(--color-shadow);
+    text-align: center;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.confirmation-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    animation: popIn 0.5s ease-out 0.2s both;
+}
+
+.rsvp-confirmation h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+.rsvp-confirmation p {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Back Link */
+.back-link {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--color-text);
+}
+
+.back-link-form {
+    margin-top: 25px;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Responsive adjustments */
+@media (max-width: 650px) {
+    .rsvp-section {
+        padding: 20px 15px;
+        align-items: flex-start;
+        min-height: auto;
+    }
+
+    .rsvp-header {
+        margin-bottom: 20px;
+    }
+
+    .rsvp-intro {
+        margin-bottom: 25px;
+    }
+
+    .rsvp-form {
+        padding: 30px 20px;
+    }
+
+    .rsvp-confirmation {
+        padding: 40px 25px;
+    }
+
+    .radio-group {
+        gap: 10px;
+    }
+
+    .radio-option {
+        padding: 12px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .rsvp-section {
+        padding: 15px 15px;
+    }
+
+    .rsvp-form {
+        padding: 25px 18px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group select,
+    .form-group textarea {
+        padding: 12px 14px;
+    }
+
+    .submit-btn {
+        padding: 14px 28px;
+    }
+}

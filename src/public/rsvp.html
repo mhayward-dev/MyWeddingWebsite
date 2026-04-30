@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Cansu & Mark's Wedding</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/rsvp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@400;500;600&family=Kalam:wght@400;700&family=Lato:wght@300;400&subset=latin,latin-ext&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Selector -->
+    <div class="language-bar">
+        <button class="lang-btn" data-lang="en" title="English">
+            <svg class="flag-icon" viewBox="0 0 60 30" width="32" height="16">
+                <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+                <path d="M0,0 v30 h60 v-30 z" fill="#00247d"/>
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+                <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#cf142b" stroke-width="4"/>
+                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+                <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" stroke-width="6"/>
+            </svg>
+        </button>
+        <button class="lang-btn" data-lang="de" title="Deutsch">
+            <svg class="flag-icon" viewBox="0 0 5 3" width="32" height="20">
+                <rect width="5" height="3" fill="#000"/>
+                <rect width="5" height="2" y="1" fill="#D00"/>
+                <rect width="5" height="1" y="2" fill="#FFCE00"/>
+            </svg>
+        </button>
+        <button class="lang-btn" data-lang="tr" title="Türkçe">
+            <svg class="flag-icon" viewBox="0 0 1200 800" width="32" height="20">
+                <rect fill="#E30A17" width="1200" height="800"/>
+                <circle fill="#fff" cx="425" cy="400" r="200"/>
+                <circle fill="#E30A17" cx="475" cy="400" r="160"/>
+                <polygon fill="#fff" points="650,400 609,414 609,457 583,422 542,435 567,400 542,365 583,378 609,343 609,387"/>
+            </svg>
+        </button>
+    </div>
+
+    <section class="rsvp-section">
+        <!-- Decorative botanical elements -->
+        <div class="botanical-decor top-left"></div>
+        <div class="botanical-decor top-right"></div>
+
+        <div class="rsvp-content">
+            <header class="rsvp-header">
+                <h1 class="couple-names" data-i18n="coupleNames">Cansu & Mark's<br>Wedding</h1>
+                <p class="wedding-details" data-i18n="weddingDate">12 September 2026 • Berlin</p>
+            </header>
+
+            <div class="rsvp-intro">
+                <h2 class="rsvp-title" data-i18n="rsvpTitle">RSVP</h2>
+                <p class="rsvp-subtitle" data-i18n="rsvpSubtitle">Please let us know if you can join us</p>
+            </div>
+
+            <form class="rsvp-form" id="rsvpForm">
+                <p class="required-note"><span class="required-indicator">*</span> <span data-i18n="requiredNote">Required field</span></p>
+                
+                <div class="form-group">
+                    <label for="guestName"><span data-i18n="labelName">Your Name</span> <span class="required-indicator">*</span></label>
+                    <input type="text" id="guestName" name="guestName" required data-i18n-placeholder="placeholderName">
+                </div>
+
+                <div class="form-group">
+                    <label><span data-i18n="labelAttendance">Will you be attending?</span> <span class="required-indicator">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="yes" required>
+                            <span class="radio-label" data-i18n="optionYes">Yes, I'll be there!</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="attendance" value="no" required>
+                            <span class="radio-label" data-i18n="optionNo">Sorry, I can't make it</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group guest-count-group" id="guestCountGroup" style="display: none;">
+                    <label for="guestCount" data-i18n="labelGuestCount">Number of Guests (including yourself)</label>
+                    <select id="guestCount" name="guestCount">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6+</option>
+                    </select>
+                </div>
+
+                <div class="form-group dietary-group" id="dietaryGroup" style="display: none;">
+                    <label for="dietary" data-i18n="labelDietary">Dietary Requirements (optional)</label>
+                    <textarea id="dietary" name="dietary" rows="3" data-i18n-placeholder="placeholderDietary"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" data-i18n="labelMessage">Message to Cansu and Mark (optional)</label>
+                    <textarea id="message" name="message" rows="4" data-i18n-placeholder="placeholderMessage"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" data-i18n="submitBtn">Send RSVP</button>
+            </form>
+
+            <div class="rsvp-confirmation" id="rsvpConfirmation" style="display: none;">
+                <div class="confirmation-icon">✓</div>
+                <h3 data-i18n="confirmationTitle">Thank You!</h3>
+                <p data-i18n="confirmationMessage">Your RSVP has been received. We look forward to celebrating with you!</p>
+                <a href="index.html" class="back-link" data-i18n="backToHome">Back to Home</a>
+            </div>
+
+            <a href="index.html" class="back-link back-link-form" data-i18n="backToHome">Back to Home</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="botanical-decor bottom-left"></div>
+        <div class="botanical-decor bottom-right"></div>
+        <h2 class="couple-names-small" data-i18n="coupleNames">Cansu & Mark's <br> Wedding</h2>
+        <p class="wedding-details-small" data-i18n="weddingDate">12 September 2026 • Berlin</p>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script>
+        // Page-specific translations for RSVP page
+        const rsvpTranslations = {
+            en: {
+                pageTitle: "RSVP - Cansu & Mark's Wedding",
+                rsvpTitle: 'RSVP',
+                rsvpSubtitle: 'Please let us know if you can join us',
+                requiredNote: 'Required field',
+                labelName: 'Your Name',
+                placeholderName: 'Enter your name(s)',
+                labelAttendance: 'Will you be attending?',
+                optionYes: "Yes, I'll be there!",
+                optionNo: "Sorry, I can't make it",
+                labelGuestCount: 'Number of Guests (including yourself)',
+                labelDietary: 'Dietary Requirements (optional)',
+                placeholderDietary: 'Please let us know about any allergies or dietary restrictions...',
+                labelMessage: 'Message to Cansu and Mark (optional)',
+                placeholderMessage: 'Share your wishes or any questions...',
+                submitBtn: 'Send RSVP',
+                confirmationTitle: 'Thank You!',
+                confirmationMessage: 'Your RSVP has been received. We look forward to celebrating with you!',
+                confirmationMessageNo: 'We are sorry you cannot join us. We will miss you!',
+                backToHome: '← Back to Home'
+            },
+            de: {
+                pageTitle: 'RSVP - Cansu & Marks Hochzeit',
+                rsvpTitle: 'RSVP',
+                rsvpSubtitle: 'Bitte teile uns mit, ob du dabei sein kannst',
+                requiredNote: 'Pflichtfeld',
+                labelName: 'Dein Name',
+                placeholderName: 'Gib deinen/eure Namen ein',
+                labelAttendance: 'Wirst du dabei sein?',
+                optionYes: 'Ja, ich bin dabei!',
+                optionNo: 'Leider kann ich nicht kommen',
+                labelGuestCount: 'Anzahl der Gäste (inkl. dir selbst)',
+                labelDietary: 'Ernährungsbesonderheiten (optional)',
+                placeholderDietary: 'Bitte teile uns Allergien oder Ernährungseinschränkungen mit...',
+                labelMessage: 'Nachricht an Cansu und Mark (optional)',
+                placeholderMessage: 'Teile deine Wünsche oder Fragen mit...',
+                submitBtn: 'RSVP absenden',
+                confirmationTitle: 'Vielen Dank!',
+                confirmationMessage: 'Deine Antwort wurde empfangen. Wir freuen uns darauf, mit dir zu feiern!',
+                confirmationMessageNo: 'Schade, dass du nicht dabei sein kannst. Du wirst uns fehlen!',
+                backToHome: '← Zurück zur Startseite'
+            },
+            tr: {
+                pageTitle: "RSVP - Cansu & Mark'ın Düğünü",
+                rsvpTitle: 'RSVP',
+                rsvpSubtitle: 'Lütfen katılıp katılamayacağınızı bize bildirin',
+                requiredNote: 'Zorunlu alan',
+                labelName: 'Adınız',
+                placeholderName: 'Adınızı/Adlarınızı girin',
+                labelAttendance: 'Katılacak mısınız?',
+                optionYes: 'Evet, orada olacağım!',
+                optionNo: 'Üzgünüm, katılamıyorum',
+                labelGuestCount: 'Misafir Sayısı (kendiniz dahil)',
+                labelDietary: 'Diyet Gereksinimleri (isteğe bağlı)',
+                placeholderDietary: 'Lütfen alerjilerinizi veya diyet kısıtlamalarınızı bildirin...',
+                labelMessage: 'Cansu ve Mark\'a Mesaj (isteğe bağlı)',
+                placeholderMessage: 'Dileklerinizi veya sorularınızı paylaşın...',
+                submitBtn: "RSVP'yi Gönder",
+                confirmationTitle: 'Teşekkürler!',
+                confirmationMessage: "RSVP'niz alındı. Sizinle kutlamayı dört gözle bekliyoruz!",
+                confirmationMessageNo: 'Katılamayacağınız için üzgünüz. Sizi özleyeceğiz!',
+                backToHome: '← Ana Sayfaya Dön'
+            }
+        };
+
+        // Initialize i18n with page-specific translations
+        i18n.init(rsvpTranslations);
+
+        // Form logic
+        const form = document.getElementById('rsvpForm');
+        const guestCountGroup = document.getElementById('guestCountGroup');
+        const dietaryGroup = document.getElementById('dietaryGroup');
+        const confirmation = document.getElementById('rsvpConfirmation');
+        const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
+
+        // Show/hide fields based on attendance
+        attendanceRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'yes') {
+                    guestCountGroup.style.display = 'block';
+                    dietaryGroup.style.display = 'block';
+                } else {
+                    guestCountGroup.style.display = 'none';
+                    dietaryGroup.style.display = 'none';
+                }
+            });
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Here you would typically send this to your backend
+            console.log('RSVP Data:', data);
+            
+            // Show confirmation
+            form.style.display = 'none';
+            document.querySelector('.back-link-form').style.display = 'none';
+            confirmation.style.display = 'block';
+
+            // Update confirmation message based on attendance
+            if (data.attendance === 'no') {
+                const lang = i18n.getCurrentLanguage();
+                const confirmMsg = document.querySelector('#rsvpConfirmation [data-i18n="confirmationMessage"]');
+                if (confirmMsg && rsvpTranslations[lang]) {
+                    confirmMsg.textContent = rsvpTranslations[lang].confirmationMessageNo;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

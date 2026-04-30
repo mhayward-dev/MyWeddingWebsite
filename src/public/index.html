@@ -56,8 +56,9 @@
                 <p class="hero-intro-text" data-i18n="heroIntro1">Dear family and friends,</p>
                 <p class="hero-intro-text" data-i18n="heroIntro2">We are so excited to spend this special day with you and celebrate together.</p>
                 <p class="hero-intro-text" data-i18n="heroIntro3">We invite you to celebrate the registration of our marriage with us in Berlin, and we are really excited and happy if you could share this special moment with us.</p>
-                <p class="hero-intro-text" data-i18n="heroIntro4">Scroll down to RSVP and see our plan for the day.</p>
             </div>
+
+            <a href="rsvp.html" class="rsvp-cta" data-i18n="rsvpButton">RSVP Now</a>
 
             <div class="scroll-indicator">
                 <span class="scroll-text" data-i18n="scrollDown">Scroll down</span>
@@ -303,6 +304,15 @@
         </div>
     </section>
 
+    <!-- RSVP CTA Section -->
+    <section class="rsvp-section">
+        <div class="rsvp-section-content">
+            <h2 class="rsvp-section-title" data-i18n="rsvpSectionTitle">Will You Join Us?</h2>
+            <p class="rsvp-section-text" data-i18n="rsvpSectionText">We would be honored to have you celebrate this special day with us. Please let us know if you can attend.</p>
+            <a href="rsvp.html" class="rsvp-cta rsvp-cta-bottom" data-i18n="rsvpButton">RSVP Now</a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="botanical-decor bottom-left"></div>
@@ -311,6 +321,7 @@
         <p class="wedding-details-small" data-i18n="weddingDate">12 September 2026 • Berlin</p>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script>
         // Animate sections when they come into view
         const timelineSection = document.querySelector('.timeline-section');
@@ -354,17 +365,15 @@
             observer.observe(directionsSection);
         }
 
-        // Translation system
-        const translations = {
+        // Page-specific translations for home page
+        const homeTranslations = {
             en: {
                 pageTitle: "Cansu & Mark's - Wedding",
-                coupleNames: "Cansu & Mark's<br>Wedding",
-                weddingDate: '12 September 2026 • Berlin',
                 heroIntro1: 'Dear family and friends,',
                 heroIntro2: 'We are so excited to spend this special day with you and celebrate together.',
                 heroIntro3: 'We invite you to celebrate the registration of our marriage with us in Berlin, and we are really excited and happy if you could share this special moment with us.',
-                heroIntro4: 'Scroll down to RSVP and see our plan for the day.',
-                scrollDown: 'Scroll down',
+                rsvpButton: 'RSVP Now',
+                scrollDown: 'Or scroll down for information',
                 timelineTitle: "DAY'S SCHEDULE",
                 timelineIntro: 'Join us as we celebrate our special day',
                 scheduleInfo1: 'Please arrive no later than 3:00 p.m. so we can all start the ceremony together in a relaxed atmosphere.',
@@ -389,17 +398,17 @@
                 directionsIntro: 'Find your way to our venues',
                 venue1Type: 'Wedding Ceremony',
                 venue2Type: 'Dinner & Celebration',
-                getDirections: 'Get Directions'
+                getDirections: 'Get Directions',
+                rsvpSectionTitle: 'Will You Join Us?',
+                rsvpSectionText: 'We would be honored to have you celebrate this special day with us. Please let us know if you can attend.'
             },
             de: {
                 pageTitle: 'Cansu & Marks - Hochzeit',
-                coupleNames: 'Cansu & Marks<br>Hochzeit',
-                weddingDate: '12. September 2026 • Berlin',
                 heroIntro1: 'Liebe Familie und Freunde,',
                 heroIntro2: 'Wir freuen uns sehr, diesen besonderen Tag mit euch zu verbringen und gemeinsam zu feiern.',
                 heroIntro3: 'Wir laden euch ein, die standesamtliche Trauung mit uns in Berlin zu feiern, und wir würden uns sehr freuen, wenn ihr diesen besonderen Moment mit uns teilen könntet.',
-                heroIntro4: 'Scrollt nach unten, um zu antworten und unseren Tagesplan zu sehen.',
-                scrollDown: 'Nach unten scrollen',
+                rsvpButton: 'Jetzt antworten',
+                scrollDown: 'Oder nach unten scrollen für Infos',
                 timelineTitle: 'TAGESABLAUF',
                 timelineIntro: 'Begleitet uns an unserem besonderen Tag',
                 scheduleInfo1: 'Bitte seid spätestens um 15:00 Uhr vor Ort, damit wir alle gemeinsam entspannt in die Trauung starten können.',
@@ -424,17 +433,17 @@
                 directionsIntro: 'So findet ihr zu unseren Veranstaltungsorten',
                 venue1Type: 'Standesamtliche Trauung',
                 venue2Type: 'Abendessen & Feier',
-                getDirections: 'Wegbeschreibung'
+                getDirections: 'Wegbeschreibung',
+                rsvpSectionTitle: 'Seid Ihr dabei?',
+                rsvpSectionText: 'Es wäre uns eine große Ehre, diesen besonderen Tag mit euch zu feiern. Bitte lasst uns wissen, ob ihr dabei sein könnt.'
             },
             tr: {
                 pageTitle: "Cansu & Mark'ın - Düğünü",
-                coupleNames: "Cansu & Mark'ın<br>Düğünü",
-                weddingDate: '12 Eylül 2026 • Berlin',
                 heroIntro1: 'Sevgili aile ve arkadaşlar,',
                 heroIntro2: 'Bu özel günü sizinle geçirmek ve birlikte kutlamak için çok heyecanlıyız.',
                 heroIntro3: 'Sizi Berlin\'de nikah törenimizi kutlamaya davet ediyoruz ve bu özel anı bizimle paylaşırsanız çok mutlu oluruz.',
-                heroIntro4: 'RSVP yapmak ve günün planını görmek için aşağı kaydırın.',
-                scrollDown: 'Aşağı kaydır',
+                rsvpButton: 'Şimdi RSVP Yap',
+                scrollDown: 'Veya bilgi için aşağı kaydırın',
                 timelineTitle: 'GÜNÜN PROGRAMI',
                 timelineIntro: 'Özel günümüzü kutlarken bize katılın',
                 scheduleInfo1: 'Lütfen en geç saat 15:00\'de gelin, böylece törene hep birlikte rahat bir atmosferde başlayalım.',
@@ -459,59 +468,14 @@
                 directionsIntro: 'Mekanlarımıza nasıl ulaşırsınız',
                 venue1Type: 'Nikah Töreni',
                 venue2Type: 'Akşam Yemeği & Kutlama',
-                getDirections: 'Yol Tarifi Al'
+                getDirections: 'Yol Tarifi Al',
+                rsvpSectionTitle: 'Bize Katılacak mısınız?',
+                rsvpSectionText: 'Bu özel günü sizinle kutlamak bizim için büyük bir onur olurdu. Lütfen katılıp katılamayacağınızı bize bildirin.'
             }
         };
 
-        function setLanguage(lang) {
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-            
-            // Update page title
-            if (translations[lang] && translations[lang].pageTitle) {
-                document.title = translations[lang].pageTitle;
-            }
-            
-            // Update active button state
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === lang);
-            });
-            
-            // Save preference
-            localStorage.setItem('wedding-lang', lang);
-            
-            // Update html lang attribute
-            document.documentElement.lang = lang;
-        }
-
-        // Detect browser language and map to supported languages
-        function detectLanguage() {
-            const supportedLanguages = ['en', 'de', 'tr'];
-            const browserLanguages = navigator.languages || [navigator.language || navigator.userLanguage];
-            
-            for (const lang of browserLanguages) {
-                // Get the primary language code (e.g., 'en' from 'en-US')
-                const primaryLang = lang.split('-')[0].toLowerCase();
-                if (supportedLanguages.includes(primaryLang)) {
-                    return primaryLang;
-                }
-            }
-            
-            return 'en'; // Default fallback
-        }
-
-        // Initialize language buttons
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-        });
-
-        // Load saved language, or detect from browser, or default to English
-        const savedLang = localStorage.getItem('wedding-lang') || detectLanguage();
-        setLanguage(savedLang);
+        // Initialize i18n with page-specific translations
+        i18n.init(homeTranslations);
     </script>
 </body>
 </html>
