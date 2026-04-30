@@ -216,28 +216,51 @@
         });
 
         // Form submission
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Get form data
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
             
-            // Here you would typically send this to your backend
-            console.log('RSVP Data:', data);
-            
-            // Show confirmation
-            form.style.display = 'none';
-            document.querySelector('.back-link-form').style.display = 'none';
-            confirmation.style.display = 'block';
+            // Disable submit button and show loading state
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
 
-            // Update confirmation message based on attendance
-            if (data.attendance === 'no') {
-                const lang = i18n.getCurrentLanguage();
-                const confirmMsg = document.querySelector('#rsvpConfirmation [data-i18n="confirmationMessage"]');
-                if (confirmMsg && rsvpTranslations[lang]) {
-                    confirmMsg.textContent = rsvpTranslations[lang].confirmationMessageNo;
+            try {
+                // Submit to Firebase Function
+                const response = await fetch('/api/rsvp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to submit RSVP');
                 }
+
+                // Show confirmation
+                form.style.display = 'none';
+                document.querySelector('.back-link-form').style.display = 'none';
+                confirmation.style.display = 'block';
+
+                // Update confirmation message based on attendance
+                if (data.attendance === 'no') {
+                    const lang = i18n.getCurrentLanguage();
+                    const confirmMsg = document.querySelector('#rsvpConfirmation [data-i18n="confirmationMessage"]');
+                    if (confirmMsg && rsvpTranslations[lang]) {
+                        confirmMsg.textContent = rsvpTranslations[lang].confirmationMessageNo;
+                    }
+                }
+            } catch (error) {
+                console.error('RSVP submission error:', error);
+                alert('Sorry, there was an error submitting your RSVP. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
             }
         });
     </script>
