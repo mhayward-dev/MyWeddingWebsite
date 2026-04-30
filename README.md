@@ -1,4 +1,4 @@
-# Cansu & Mark's Wedding Website
+# My Wedding Website
 
 A wedding website built with Firebase Hosting and Cloud Functions, featuring RSVP functionality with Google Sheets tracking and Telegram notifications.
 
