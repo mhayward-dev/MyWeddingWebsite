@@ -13,6 +13,7 @@ admin.initializeApp();
 const telegramBotToken = defineSecret("TELEGRAM_BOT_TOKEN");
 const telegramChatId = defineSecret("TELEGRAM_CHAT_ID");
 const spreadsheetId = defineSecret("SPREADSHEET_ID");
+const sitePassword = defineSecret("SITE_PASSWORD");
 
 /**
  * Send a message to Telegram
@@ -142,6 +143,64 @@ exports.submitRsvp = onRequest(
     } catch (error) {
       console.error("Error processing RSVP:", error);
       res.status(500).json({ error: "Failed to process RSVP" });
+    }
+  }
+);
+
+/**
+ * Password check endpoint for site protection
+ */
+exports.checkPassword = onRequest(
+  { 
+    cors: true,
+    secrets: [sitePassword]
+  },
+  async (req, res) => {
+    if (req.method !== "POST") {
+      res.status(405).json({ error: "Method not allowed" });
+      return;
+    }
+
+    try {
+      const { password } = req.body;
+
+      if (!password) {
+        res.status(400).json({ error: "Password required" });
+        return;
+      }
+
+      const correctPassword = sitePassword.value();
+      
+      if (!correctPassword) {
+        console.error("SITE_PASSWORD secret not configured");
+        res.status(500).json({ error: "Server configuration error" });
+        return;
+      }
+
+      if (password === correctPassword) {
+        // Generate a simple session token (hash of password + timestamp rounded to day)
+        const today = new Date().toISOString().split("T")[0];
+        const crypto = require("crypto");
+        const token = crypto
+          .createHash("sha256")
+          .update(correctPassword + today)
+          .digest("hex")
+          .substring(0, 32);
+
+        res.status(200).json({ 
+          success: true, 
+          token: token
+        });
+      } else {
+        res.status(401).json({ 
+          success: false, 
+          error: "Incorrect password" 
+        });
+      }
+
+    } catch (error) {
+      console.error("Error checking password:", error);
+      res.status(500).json({ error: "Failed to verify password" });
     }
   }
 );

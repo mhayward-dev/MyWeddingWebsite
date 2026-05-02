@@ -1,0 +1,121 @@
+/* Auth Overlay Styles */
+
+.auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2c2424;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.auth-overlay.active {
+    display: flex;
+}
+
+.auth-modal {
+    background: var(--color-white, #ffffff);
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(107, 80, 80, 0.15);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.auth-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    color: var(--color-text, #6b5050);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.auth-subtitle {
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 0.95rem;
+    color: var(--color-text-light, #8b7070);
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth-form input[type="password"] {
+    padding: 14px 18px;
+    font-size: 1rem;
+    border: 2px solid var(--color-primary-light, #c9a9a9);
+    border-radius: 8px;
+    font-family: 'Lato', Arial, sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+.auth-form input[type="password"]:focus {
+    border-color: var(--color-primary, #a67c7c);
+    box-shadow: 0 0 0 3px rgba(166, 124, 124, 0.15);
+}
+
+.auth-form input[type="password"]::placeholder {
+    color: var(--color-text-light, #8b7070);
+    opacity: 0.7;
+}
+
+.auth-form button[type="submit"] {
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-family: 'Lato', Arial, sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: var(--color-primary, #a67c7c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.auth-form button[type="submit"]:hover:not(:disabled) {
+    background: var(--color-text, #6b5050);
+}
+
+.auth-form button[type="submit"]:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+.auth-form button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.auth-error {
+    color: #c45050;
+    font-size: 0.9rem;
+    margin-top: 12px;
+    font-family: 'Lato', Arial, sans-serif;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .auth-modal {
+        padding: 40px 24px;
+    }
+    
+    .auth-title {
+        font-size: 1.8rem;
+    }
+    
+    .auth-subtitle {
+        font-size: 0.9rem;
+    }
+}

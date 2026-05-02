@@ -4,6 +4,7 @@ A wedding website built with Firebase Hosting and Cloud Functions, featuring RSV
 
 ## Features
 
+- **Password protection**: Site-wide authentication with server-validated password
 - **Multi-language support**: English, German, and Turkish
 - **RSVP form**: Collects guest responses with dietary requirements
 - **Google Sheets integration**: Automatically logs RSVPs to a spreadsheet
@@ -47,6 +48,7 @@ npm install
 ### 2. Configure Secrets
 
 ```bash
+firebase functions:secrets:set SITE_PASSWORD
 firebase functions:secrets:set TELEGRAM_BOT_TOKEN
 firebase functions:secrets:set TELEGRAM_CHAT_ID
 firebase functions:secrets:set SPREADSHEET_ID
@@ -76,6 +78,11 @@ firebase emulators:start
 
 Visit `http://localhost:5000` to view the site.
 
+For password protection to work locally, create `src/functions/.secret.local`:
+```
+SITE_PASSWORD=yourpassword
+```
+
 ## Configuration
 
 ### Firebase Project
@@ -92,6 +99,7 @@ Update `.firebaserc` with your project ID:
 ### Environment
 
 The Cloud Function uses Firebase Secrets for sensitive configuration:
+- `SITE_PASSWORD` - Password to access the website
 - `TELEGRAM_BOT_TOKEN` - Bot token from @BotFather
 - `TELEGRAM_CHAT_ID` - Group chat ID (negative number)
 - `SPREADSHEET_ID` - Google Sheet ID from URL

@@ -13,6 +13,13 @@
           "functionId": "submitRsvp",
           "region": "europe-west1"
         }
+      },
+      {
+        "source": "/api/auth",
+        "function": {
+          "functionId": "checkPassword",
+          "region": "europe-west1"
+        }
       }
     ]
   },
