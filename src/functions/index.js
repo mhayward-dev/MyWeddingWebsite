@@ -84,7 +84,7 @@ async function appendToGoogleSheets(rsvpData, sheetId) {
 exports.submitRsvp = onRequest(
   { 
     cors: true,
-    secrets: [telegramBotToken, telegramChatId, spreadsheetId]
+    secrets: [telegramBotToken, telegramChatId, spreadsheetId, sitePassword]
   },
   async (req, res) => {
     if (req.method !== "POST") {
@@ -94,6 +94,32 @@ exports.submitRsvp = onRequest(
 
     try {
       const rsvpData = req.body;
+
+      // Validate auth token
+      const { authToken, authExpiry } = rsvpData;
+      if (!authToken || !authExpiry) {
+        res.status(401).json({ error: "Authentication required" });
+        return;
+      }
+
+      // Check token hasn't expired
+      if (Date.now() > parseInt(authExpiry, 10)) {
+        res.status(401).json({ error: "Session expired" });
+        return;
+      }
+
+      // Verify token matches expected value
+      const crypto = require("crypto");
+      const expectedToken = crypto
+        .createHash("sha256")
+        .update(sitePassword.value() + authExpiry.toString())
+        .digest("hex")
+        .substring(0, 32);
+
+      if (authToken !== expectedToken) {
+        res.status(401).json({ error: "Invalid authentication" });
+        return;
+      }
 
       // Validate required fields
       if (!rsvpData.guestName || !rsvpData.attendance) {
@@ -178,18 +204,19 @@ exports.checkPassword = onRequest(
       }
 
       if (password === correctPassword) {
-        // Generate a simple session token (hash of password + timestamp rounded to day)
-        const today = new Date().toISOString().split("T")[0];
+        // Generate a session token with 7-day expiration
         const crypto = require("crypto");
+        const expiresAt = Date.now() + (7 * 24 * 60 * 60 * 1000); // 7 days
         const token = crypto
           .createHash("sha256")
-          .update(correctPassword + today)
+          .update(correctPassword + expiresAt.toString())
           .digest("hex")
           .substring(0, 32);
 
         res.status(200).json({ 
           success: true, 
-          token: token
+          token: token,
+          expiresAt: expiresAt
         });
       } else {
         res.status(401).json({ 

@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "src/site",
+    "cleanUrls": true,
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -20,6 +21,14 @@
           "functionId": "checkPassword",
           "region": "europe-west1"
         }
+      },
+      {
+        "source": "/login",
+        "destination": "/login.html"
+      },
+      {
+        "source": "/rsvp",
+        "destination": "/rsvp.html"
       }
     ]
   },

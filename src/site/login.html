@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Cansu & Mark's Wedding</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="login-page">
+    <div class="auth-container">
+        <div class="auth-modal">
+            <h2 class="auth-title">Cansu & Mark's Wedding</h2>
+            <p class="auth-subtitle">Please enter the password to view this page</p>
+            <form id="authForm" class="auth-form">
+                <input type="password" id="authPassword" placeholder="Enter password" autocomplete="off" required>
+                <button type="submit">Enter</button>
+            </form>
+            <p id="authError" class="auth-error" style="display: none;">Incorrect password</p>
+        </div>
+    </div>
+
+    <script>
+        const Auth = {
+            TOKEN_KEY: 'wedding_auth_token',
+            EXPIRY_KEY: 'wedding_auth_expiry',
+
+            isAuthenticated() {
+                const token = localStorage.getItem(this.TOKEN_KEY);
+                const expiry = localStorage.getItem(this.EXPIRY_KEY);
+                
+                if (!token || !expiry) return false;
+                
+                // Check if token has expired
+                if (Date.now() > parseInt(expiry, 10)) {
+                    this.clearAuth();
+                    return false;
+                }
+                
+                return true;
+            },
+
+            setAuth(token, expiresAt) {
+                localStorage.setItem(this.TOKEN_KEY, token);
+                localStorage.setItem(this.EXPIRY_KEY, expiresAt.toString());
+            },
+
+            clearAuth() {
+                localStorage.removeItem(this.TOKEN_KEY);
+                localStorage.removeItem(this.EXPIRY_KEY);
+            },
+
+            getRedirectUrl() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('redirect') || '/';
+            },
+
+            async verifyPassword(password) {
+                try {
+                    const response = await fetch('/api/auth', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ password })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (response.ok && data.success) {
+                        this.setAuth(data.token, data.expiresAt);
+                        return { success: true };
+                    } else {
+                        return { success: false, error: data.error || 'Invalid password' };
+                    }
+                } catch (error) {
+                    console.error('Auth error:', error);
+                    return { success: false, error: 'Connection error. Please try again.' };
+                }
+            },
+
+            init() {
+                // If already authenticated, redirect immediately
+                if (this.isAuthenticated()) {
+                    window.location.replace(this.getRedirectUrl());
+                    return;
+                }
+
+                const form = document.getElementById('authForm');
+                const input = document.getElementById('authPassword');
+                const errorEl = document.getElementById('authError');
+
+                // Focus password input
+                setTimeout(() => input.focus(), 100);
+
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const password = input.value.trim();
+                    if (!password) return;
+                    
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = '...';
+                    errorEl.style.display = 'none';
+                    
+                    const result = await this.verifyPassword(password);
+                    
+                    if (result.success) {
+                        window.location.replace(this.getRedirectUrl());
+                    } else {
+                        errorEl.textContent = result.error;
+                        errorEl.style.display = 'block';
+                        input.value = '';
+                        input.focus();
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }
+                });
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => Auth.init());
+    </script>
+</body>
+</html>

@@ -9,21 +9,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@400;500;600&family=Kalam:wght@400;700&family=Lato:wght@300;400&subset=latin,latin-ext&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/auth.css">
+    <script>
+        (function() {
+            var token = localStorage.getItem('wedding_auth_token');
+            var expiry = localStorage.getItem('wedding_auth_expiry');
+            if (!token || !expiry || Date.now() > parseInt(expiry, 10)) {
+                localStorage.removeItem('wedding_auth_token');
+                localStorage.removeItem('wedding_auth_expiry');
+                window.location.replace('/login?redirect=' + encodeURIComponent(window.location.pathname + window.location.search));
+            }
+        })();
+    </script>
 </head>
 <body>
-    <!-- Auth Overlay -->
-    <div id="authOverlay" class="auth-overlay">
-        <div class="auth-modal">
-            <h2 class="auth-title">Cansu & Mark's Wedding</h2>
-            <p class="auth-subtitle">Please enter the password to view this page</p>
-            <form id="authForm" class="auth-form">
-                <input type="password" id="authPassword" placeholder="Enter password" autocomplete="off" required>
-                <button type="submit">Enter</button>
-            </form>
-            <p id="authError" class="auth-error" style="display: none;">Incorrect password</p>
-        </div>
-    </div>
     <!-- Language Selector -->
     <div class="language-bar">
         <button class="lang-btn" data-lang="en" title="English">
@@ -71,7 +69,7 @@
                 <p class="hero-intro-text" data-i18n="heroIntro3">We invite you to celebrate the registration of our marriage with us in Berlin, and we are really excited and happy if you could share this special moment with us.</p>
             </div>
 
-            <a href="rsvp.html" class="rsvp-cta" data-i18n="rsvpButton">RSVP Now</a>
+            <a href="/rsvp" class="rsvp-cta" data-i18n="rsvpButton">RSVP Now</a>
 
             <div class="scroll-indicator">
                 <span class="scroll-text" data-i18n="scrollDown">Scroll down</span>
@@ -87,7 +85,7 @@
                 <div class="polaroid polaroid-1">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo1.jpg" alt="Visiting Berlin" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/k7xm2q9p_1.jpg" alt="Visiting Berlin" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
                         <div class="polaroid-caption">Visiting Berlin</div>
                     </div>
@@ -96,7 +94,7 @@
                 <div class="polaroid polaroid-2">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo2.jpg" alt="Celebration" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/f3nh8w4t_2.jpg" alt="Celebration" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
                         <div class="polaroid-caption">Celebration</div>
                     </div>
@@ -105,7 +103,7 @@
                 <div class="polaroid polaroid-3">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo5.jpg" alt="Nights out" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/w8ka4n3e_5.jpg" alt="Nights out" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
                         <div class="polaroid-caption">Nights out</div>
                     </div>
@@ -114,7 +112,7 @@
                 <div class="polaroid polaroid-4">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo4.jpg" alt="Türkiye ♡" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/j2pd7m1x_4.jpg" alt="Türkiye ♡" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
                         <div class="polaroid-caption">Türkiye ♡</div>
                     </div>
@@ -123,7 +121,7 @@
                 <div class="polaroid polaroid-5">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo3.jpg" alt="Engaged!" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/b9vc5r6y_3.jpg" alt="Engaged!" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
                         <div class="polaroid-caption">Engaged!</div>
                     </div>
@@ -132,7 +130,7 @@
                 <div class="polaroid polaroid-6">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo6.jpg" alt="Concert nights" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/t6uf9s2h_6.jpg" alt="Concert nights" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
                         <div class="polaroid-caption">Concert nights</div>
                     </div>
@@ -141,7 +139,7 @@
                 <div class="polaroid polaroid-7">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo7.jpg" alt="Foodie dates" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/g1lb8c5z_7.jpg" alt="Foodie dates" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
                         <div class="polaroid-caption">Foodie dates</div>
                     </div>
@@ -150,7 +148,7 @@
                 <div class="polaroid polaroid-8">
                     <div class="polaroid-frame">
                         <div class="polaroid-image">
-                            <img src="images/photo8.jpg" alt="London calling" onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/q4re7v0d_8.jpg" alt="London calling" onerror="this.parentElement.classList.add('placeholder')">
                         </div>
                         <div class="polaroid-caption">London calling</div>
                     </div>
@@ -284,7 +282,7 @@
             <!-- Ceremony Venue -->
             <div class="venue-card">
                 <div class="venue-icon">
-                    <img src="images/venue-dinner.jpg" alt="Standesamt Schöneberg">
+                    <img src="images/p2yw6t1a_dinner.jpg" alt="Standesamt Schöneberg">
                 </div>
                 <h3 class="venue-name">Standesamt Schöneberg</h3>
                 <p class="venue-type" data-i18n="venue1Type">Wedding Ceremony</p>
@@ -301,7 +299,7 @@
             <!-- Dinner Venue -->
             <div class="venue-card">
                 <div class="venue-icon">
-                    <img src="images/venue-ceremony.jpg" alt="Osmanya">
+                    <img src="images/m5xj3k8n_ceremony.jpg" alt="Osmanya">
                 </div>
                 <h3 class="venue-name">Osmanya</h3>
                 <p class="venue-type" data-i18n="venue2Type">Dinner & Celebration</p>
@@ -322,7 +320,7 @@
         <div class="rsvp-section-content">
             <h2 class="rsvp-section-title" data-i18n="rsvpSectionTitle">Will You Join Us?</h2>
             <p class="rsvp-section-text" data-i18n="rsvpSectionText">We would be honored to have you celebrate this special day with us. Please let us know if you can attend.</p>
-            <a href="rsvp.html" class="rsvp-cta rsvp-cta-bottom" data-i18n="rsvpButton">RSVP Now</a>
+            <a href="/rsvp" class="rsvp-cta rsvp-cta-bottom" data-i18n="rsvpButton">RSVP Now</a>
         </div>
     </section>
 
@@ -334,7 +332,6 @@
         <p class="wedding-details-small" data-i18n="weddingDate">12 September 2026 • Berlin</p>
     </footer>
 
-    <script src="js/auth.js"></script>
     <script src="js/i18n.js"></script>
     <script>
         // Animate sections when they come into view

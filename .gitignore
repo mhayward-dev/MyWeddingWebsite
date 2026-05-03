@@ -8,6 +8,7 @@ serviceAccountKey.json
 .env
 .env.local
 .env.*.local
+.secret.local
 
 # Node modules
 node_modules/
