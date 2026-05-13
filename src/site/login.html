@@ -3,25 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Cansu & Mark's Wedding</title>
+    <title>Login - Cansu & Mark ♥ Civil Ceremony</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body class="login-page">
     <div class="auth-container">
         <div class="auth-modal">
-            <h2 class="auth-title">Cansu & Mark's Wedding</h2>
-            <p class="auth-subtitle">Please enter the password to view this page</p>
+            <!-- Language Selector -->
+            <div class="language-bar">
+                <button class="lang-btn" data-lang="en" title="English">
+                    <svg class="flag-icon" viewBox="0 0 60 30" width="32" height="16">
+                        <clipPath id="t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath>
+                        <path d="M0,0 v30 h60 v-30 z" fill="#00247d"/>
+                        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+                        <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#cf142b" stroke-width="4"/>
+                        <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+                        <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" stroke-width="6"/>
+                    </svg>
+                </button>
+                <button class="lang-btn" data-lang="de" title="Deutsch">
+                    <svg class="flag-icon" viewBox="0 0 5 3" width="32" height="20">
+                        <rect width="5" height="3" fill="#000"/>
+                        <rect width="5" height="2" y="1" fill="#D00"/>
+                        <rect width="5" height="1" y="2" fill="#FFCE00"/>
+                    </svg>
+                </button>
+                <button class="lang-btn" data-lang="tr" title="Türkçe">
+                    <svg class="flag-icon" viewBox="0 0 1200 800" width="32" height="20">
+                        <rect fill="#E30A17" width="1200" height="800"/>
+                        <circle fill="#fff" cx="425" cy="400" r="200"/>
+                        <circle fill="#E30A17" cx="475" cy="400" r="160"/>
+                        <polygon fill="#fff" points="650,400 609,414 609,457 583,422 542,435 567,400 542,365 583,378 609,343 609,387"/>
+                    </svg>
+                </button>
+            </div>
+
+            <h2 class="auth-title" data-i18n="authTitle">Cansu & Mark<br>Civil Ceremony</h2>
+            <p class="auth-subtitle" data-i18n="authSubtitle">Please enter the password to view this page</p>
             <form id="authForm" class="auth-form">
-                <input type="password" id="authPassword" placeholder="Enter password" autocomplete="off" required>
-                <button type="submit">Enter</button>
+                <input type="password" id="authPassword" data-i18n-placeholder="passwordPlaceholder" placeholder="Enter password" autocomplete="off" required>
+                <button type="submit" data-i18n="enterButton">Enter</button>
             </form>
-            <p id="authError" class="auth-error" style="display: none;">Incorrect password</p>
+            <p id="authError" class="auth-error" style="display: none;" data-i18n="authError">Incorrect password</p>
         </div>
     </div>
+
+    <script src="js/i18n.js"></script>
 
     <script>
         const Auth = {
@@ -122,7 +153,41 @@
             }
         };
 
-        document.addEventListener('DOMContentLoaded', () => Auth.init());
+        // Login page translations
+        const loginTranslations = {
+            en: {
+                pageTitle: "Login - Cansu & Mark ♥ Civil Ceremony",
+                authTitle: "Cansu & Mark<br>Civil Ceremony",
+                authSubtitle: 'Please enter the password to view this page',
+                passwordPlaceholder: 'Enter password',
+                enterButton: 'Enter',
+                authError: 'Incorrect password',
+                connectionError: 'Connection error. Please try again.'
+            },
+            de: {
+                pageTitle: 'Login - Cansu & Mark ♥ Standesamtliche Trauung',
+                authTitle: 'Cansu & Mark<br>Standesamtliche Trauung',
+                authSubtitle: 'Bitte gib das Passwort ein, um diese Seite anzuzeigen',
+                passwordPlaceholder: 'Passwort eingeben',
+                enterButton: 'Eintreten',
+                authError: 'Falsches Passwort',
+                connectionError: 'Verbindungsfehler. Bitte versuche es erneut.'
+            },
+            tr: {
+                pageTitle: "Giriş - Cansu & Mark ♥ Resmi Nikahı",
+                authTitle: "Cansu & Mark<br>Resmi Nikahı",
+                authSubtitle: 'Bu sayfayı görüntülemek için şifreyi girin',
+                passwordPlaceholder: 'Şifre girin',
+                enterButton: 'Giriş',
+                authError: 'Yanlış şifre',
+                connectionError: 'Bağlantı hatası. Lütfen tekrar deneyin.'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            i18n.init(loginTranslations);
+            Auth.init();
+        });
     </script>
 </body>
 </html>

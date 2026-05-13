@@ -8,6 +8,41 @@
     background: #2c2424;
 }
 
+/* Language Selector Bar */
+.language-bar {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.lang-btn {
+    background: rgba(107, 80, 80, 0.08);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+}
+
+.lang-btn:hover {
+    opacity: 1;
+    background: rgba(107, 80, 80, 0.12);
+}
+
+.lang-btn.active {
+    opacity: 1;
+    border-color: #a67c7c;
+    background: rgba(107, 80, 80, 0.12);
+}
+
+.flag-icon {
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
 .auth-container {
     min-height: 100vh;
     display: flex;

@@ -1,20 +1,23 @@
-// Shared internationalization (i18n) module for wedding website
+// Shared internationalization (i18n) module for civil ceremony website
 // Supports: English (en), German (de), Turkish (tr)
 
 const i18n = (function() {
     // Base translations shared across all pages
     const sharedTranslations = {
         en: {
-            coupleNames: "Cansu & Mark's<br>Wedding",
-            weddingDate: '12 September 2026 • Berlin',
+            ceremonyTitle: 'Civil Ceremony ♥ Celebration<br>12th September 2026',
+            loveFrom: 'Love from',
+            coupleNames: 'Cansu & Mark',
         },
         de: {
-            coupleNames: 'Cansu & Marks<br>Hochzeit',
-            weddingDate: '12. September 2026 • Berlin',
+            ceremonyTitle: 'Standesamtliche Trauung ♥ Feier<br>12. September 2026',
+            loveFrom: 'Alles Liebe',
+            coupleNames: 'Cansu & Mark',
         },
         tr: {
-            coupleNames: "Cansu & Mark'ın<br>Düğünü",
-            weddingDate: '12 Eylül 2026 • Berlin',
+            ceremonyTitle: 'Resmi Nikah ♥ Kutlama<br>12 Eylül 2026',
+            loveFrom: 'Sevgilerimizle',
+            coupleNames: 'Cansu & Mark',
         }
     };
 
@@ -31,9 +34,22 @@ const i18n = (function() {
      * Detect browser language and map to supported languages
      */
     function detectLanguage() {
-        const browserLanguages = navigator.languages || [navigator.language || navigator.userLanguage];
+        // Gather all possible language sources
+        const sources = [];
         
-        for (const lang of browserLanguages) {
+        // navigator.languages is the preferred source (ordered by user preference)
+        if (navigator.languages && navigator.languages.length) {
+            sources.push(...navigator.languages);
+        }
+        
+        // Fallback to single language properties
+        if (navigator.language) sources.push(navigator.language);
+        if (navigator.userLanguage) sources.push(navigator.userLanguage);
+        if (navigator.browserLanguage) sources.push(navigator.browserLanguage);
+        if (navigator.systemLanguage) sources.push(navigator.systemLanguage);
+        
+        for (const lang of sources) {
+            if (!lang) continue;
             const primaryLang = lang.split('-')[0].toLowerCase();
             if (supportedLanguages.includes(primaryLang)) {
                 return primaryLang;
@@ -63,7 +79,7 @@ const i18n = (function() {
     /**
      * Apply translations to elements with data-i18n attribute
      */
-    function setLanguage(lang) {
+    function setLanguage(lang, userSelected = false) {
         if (!supportedLanguages.includes(lang)) {
             console.warn(`Language "${lang}" not supported. Falling back to English.`);
             lang = 'en';
@@ -97,8 +113,11 @@ const i18n = (function() {
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
         
-        // Save preference
+        // Save preference (mark as user-selected if explicitly chosen)
         localStorage.setItem('wedding-lang', lang);
+        if (userSelected) {
+            localStorage.setItem('wedding-lang-selected', 'true');
+        }
         
         // Update html lang attribute
         document.documentElement.lang = lang;
@@ -123,14 +142,17 @@ const i18n = (function() {
             setPageTranslations(pageSpecificTranslations);
         }
 
-        // Initialize language buttons
+        // Initialize language buttons (mark as user-selected when clicked)
         document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang, true));
         });
 
-        // Load saved language, or detect from browser, or default to English
-        const savedLang = localStorage.getItem('wedding-lang') || detectLanguage();
-        setLanguage(savedLang);
+        // Only use saved language if user explicitly selected it, otherwise detect
+        const userSelected = localStorage.getItem('wedding-lang-selected') === 'true';
+        const savedLang = localStorage.getItem('wedding-lang');
+        
+        const langToUse = (userSelected && savedLang) ? savedLang : detectLanguage();
+        setLanguage(langToUse);
     }
 
     // Public API

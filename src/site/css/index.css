@@ -136,6 +136,16 @@ body {
     margin-bottom: 50px;
 }
 
+.ceremony-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
 .couple-names {
     font-family: var(--font-serif);
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -148,12 +158,31 @@ body {
 }
 
 .wedding-details {
-    font-family: var(--font-sans);
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 400;
+    font-style: italic;
     color: var(--color-text-light);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.hero-signature {
+    margin: 30px auto 40px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.7s forwards;
+}
+
+.love-from {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--color-text-light);
+    margin-bottom: 5px;
+}
+
+.hero-signature .couple-names {
+    font-size: 1.5rem;
+    margin-bottom: 0;
 }
 
 .hero-intro {
@@ -274,11 +303,14 @@ body {
 .polaroid-gallery {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
     margin-bottom: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Polaroid Base Styles */
@@ -343,42 +375,54 @@ body {
 }
 
 /* Individual Polaroid Positions & Rotations */
+/* Top row: polaroid 1, 2, and 3 */
 .polaroid-1 {
-    transform: rotate(-8deg);
-    margin-top: 30px;
+    transform: rotate(-5deg);
+    order: 1;
 }
 
 .polaroid-2 {
-    transform: rotate(3deg) translateY(-20px);
-    z-index: 2;
+    transform: rotate(3deg);
+    order: 2;
 }
 
 .polaroid-3 {
     transform: rotate(-4deg);
-    margin-top: 40px;
+    order: 3;
 }
 
+/* Bottom rows: loosely positioned */
 .polaroid-4 {
-    transform: rotate(6deg) translateY(-10px);
+    transform: rotate(-6deg) translateY(10px);
+    order: 4;
 }
 
 .polaroid-5 {
-    transform: rotate(-5deg);
-    margin-top: 25px;
+    transform: rotate(7deg) translateY(-5px);
+    order: 5;
 }
 
 .polaroid-6 {
-    transform: rotate(4deg) translateY(-15px);
-    z-index: 1;
+    transform: rotate(-3deg) translateY(15px);
+    order: 6;
 }
 
 .polaroid-7 {
-    transform: rotate(-7deg);
-    margin-top: 35px;
+    transform: rotate(5deg) translateY(-10px);
+    order: 7;
+    margin-top: 25px;
 }
 
 .polaroid-8 {
-    transform: rotate(5deg) translateY(-5px);
+    transform: rotate(-8deg) translateY(8px);
+    order: 8;
+    margin-top: 25px;
+}
+
+.polaroid-9 {
+    transform: rotate(4deg) translateY(-3px);
+    order: 9;
+    margin-top: 25px;
 }
 
 /* Footer Styles */
@@ -956,6 +1000,7 @@ body {
     background-color: var(--color-background-alt);
     position: relative;
     overflow: hidden;
+    min-height: 220px;
 }
 
 .site-footer .botanical-decor.bottom-left {
@@ -1041,8 +1086,8 @@ body {
 }
 
 .venue-icon {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     margin: 0 auto 20px;
     border-radius: 6px;
     overflow: hidden;
