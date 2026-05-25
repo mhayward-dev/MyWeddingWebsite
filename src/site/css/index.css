@@ -962,7 +962,7 @@ body {
 .event-title {
     font-family: var(--font-sans);
     font-size: clamp(0.95rem, 2vw, 1.15rem);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.15em;
     color: var(--color-text);
     margin: 0 0 10px 0;
@@ -1206,6 +1206,31 @@ body {
     font-weight: 300;
     color: var(--color-text-light);
     letter-spacing: 0.1em;
+}
+
+.footer-contact {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-contact .contact-label {
+    display: inline;
+    font-family: var(--font-sans);
+    font-size: clamp(0.9rem, 1.6vw, 1rem);
+    color: var(--color-text-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+    .footer-contact {
+        flex-direction: column;
+        gap: 5px;
+    }
 }
 
 /* ================================
