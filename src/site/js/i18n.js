@@ -1,3 +1,5 @@
+// بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ - Bismillah hir Rahman nir Raheem
+
 // Shared internationalization (i18n) module for civil ceremony website
 // Supports: English (en), German (de), Turkish (tr)
 
@@ -5,19 +7,31 @@ const i18n = (function() {
     // Base translations shared across all pages
     const sharedTranslations = {
         en: {
-            ceremonyTitle: 'Civil Ceremony ♥ Celebration<br>12th September 2026',
+            ceremonyTitle: 'Civil Ceremony',
+            celebrationTitle: 'Celebration',
+            ceremonyDate: '12th September 2026',
             loveFrom: 'Love from',
             coupleNames: 'Cansu & Mark',
+            contactLabel: 'Email:',
+            copied: 'Copied!',
         },
         de: {
-            ceremonyTitle: 'Standesamtliche Trauung ♥ Feier<br>12. September 2026',
-            loveFrom: 'Alles Liebe',
+            ceremonyTitle: 'Standesamtliche Trauung',
+            celebrationTitle: 'Feier',
+            ceremonyDate: '12. September 2026',
+            loveFrom: 'In Liebe',
             coupleNames: 'Cansu & Mark',
+            contactLabel: 'E-Mail:',
+            copied: 'Kopiert!',
         },
         tr: {
-            ceremonyTitle: 'Resmi Nikah ♥ Kutlama<br>12 Eylül 2026',
+            ceremonyTitle: 'Resmi Nikah',
+            celebrationTitle: 'Kutlama',
+            ceremonyDate: '12 Eylül 2026',
             loveFrom: 'Sevgilerimizle',
             coupleNames: 'Cansu & Mark',
+            contactLabel: 'E-posta:',
+            copied: 'Kopyalandı!',
         }
     };
 
@@ -90,7 +104,7 @@ const i18n = (function() {
 
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations && translations[key]) {
+            if (translations && key in translations) {
                 el.innerHTML = translations[key];
             }
         });

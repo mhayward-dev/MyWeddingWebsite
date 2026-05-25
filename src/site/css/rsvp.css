@@ -1,3 +1,5 @@
+/* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ - Bismillah hir Rahman nir Raheem */
+
 /* RSVP Page Styles */
 
 .rsvp-section {
@@ -21,6 +23,9 @@
 }
 
 .rsvp-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 30px;
     animation: fadeInUp 1s ease-out;
 }
@@ -132,6 +137,15 @@
     min-height: 100px;
 }
 
+/* Field Notes */
+.field-note {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-top: 8px;
+    font-style: italic;
+}
+
 /* Radio Button Group */
 .radio-group {
     display: flex;
@@ -235,6 +249,78 @@
 
 .submit-btn:active {
     transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Validation Error Styles */
+.form-group.has-error input,
+.form-group.has-error textarea,
+.form-group.has-error select {
+    border-color: #c94545;
+    background-color: rgba(201, 69, 69, 0.03);
+}
+
+.form-group.has-error input:focus,
+.form-group.has-error textarea:focus,
+.form-group.has-error select:focus {
+    box-shadow: 0 0 0 3px rgba(201, 69, 69, 0.15);
+}
+
+.form-group.has-error .radio-group {
+    border: 2px solid #c94545;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: rgba(201, 69, 69, 0.03);
+}
+
+.form-group.has-error label {
+    color: #c94545;
+}
+
+.error-message {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: #c94545;
+    margin-top: 8px;
+    animation: fadeInError 0.3s ease-out;
+}
+
+.error-message::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c94545'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E");
+    background-size: contain;
+    flex-shrink: 0;
+}
+
+@keyframes fadeInError {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.form-group.shake {
+    animation: shake 0.5s ease-out;
 }
 
 /* Confirmation Message */

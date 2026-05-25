@@ -1,3 +1,5 @@
+// بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ - Bismillah hir Rahman nir Raheem
+
 const { onRequest } = require("firebase-functions/v2/https");
 const { defineSecret } = require("firebase-functions/params");
 const { setGlobalOptions } = require("firebase-functions/v2");
@@ -65,14 +67,15 @@ async function appendToGoogleSheets(rsvpData, sheetId) {
     new Date().toISOString(),
     rsvpData.guestName,
     rsvpData.attendance,
-    rsvpData.guestCount || "N/A",
+    rsvpData.adultCount || "N/A",
+    rsvpData.childrenCount || "0",
     rsvpData.dietary || "None",
     rsvpData.message || "None"
   ]];
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: sheetId,
-    range: "RSVPs!A:F",
+    range: "RSVPs!A:G",
     valueInputOption: "USER_ENTERED",
     requestBody: { values }
   });
@@ -137,7 +140,8 @@ exports.submitRsvp = onRequest(
       telegramMsg += `<b>Status:</b> ${status}\n`;
       
       if (attending) {
-        telegramMsg += `<b>Guests:</b> ${rsvpData.guestCount || 1}\n`;
+        telegramMsg += `<b>Adults:</b> ${rsvpData.adultCount || 1}\n`;
+        telegramMsg += `<b>Children:</b> ${rsvpData.childrenCount || 0}\n`;
         if (rsvpData.dietary) {
           telegramMsg += `<b>Dietary:</b> ${rsvpData.dietary}\n`;
         }

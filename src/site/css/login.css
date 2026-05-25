@@ -1,3 +1,5 @@
+/* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ - Bismillah hir Rahman nir Raheem */
+
 /* Auth Page Styles */
 
 /* Login page full-screen container */
@@ -128,8 +130,39 @@
 }
 
 .auth-form button[type="submit"]:disabled {
-    opacity: 0.7;
+    opacity: 1;
     cursor: not-allowed;
+}
+
+/* Loading dots animation */
+.loading-dots {
+    display: inline-flex;
+    gap: 2px;
+}
+
+.loading-dots span {
+    animation: loadingDot 1.4s infinite ease-in-out both;
+}
+
+.loading-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loadingDot {
+    0%, 80%, 100% {
+        opacity: 0.3;
+    }
+    40% {
+        opacity: 1;
+    }
 }
 
 .auth-error {

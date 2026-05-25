@@ -1,3 +1,4 @@
+<!-- بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ - Bismillah hir Rahman nir Raheem -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +60,17 @@
 
         <div class="rsvp-content">
             <header class="rsvp-header">
-                <h1 class="ceremony-title" data-i18n="ceremonyTitle">Civil Ceremony<br>12th September 2026</h1>
+                <div class="hero-monogram">
+                    <span>C</span><span class="divider">|</span><span>M</span>
+                </div>
+                <h1 class="ceremony-title-main" data-i18n="ceremonyTitle">Civil Ceremony</h1>
+                <span class="ceremony-title-script" data-i18n="celebrationTitle">Celebration</span>
+                <div class="ceremony-divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-heart">♡</span>
+                    <span class="divider-line"></span>
+                </div>
+                <p class="ceremony-date" data-i18n="ceremonyDate">12th September 2026</p>
             </header>
 
             <div class="rsvp-intro">
@@ -67,15 +78,16 @@
                 <p class="rsvp-subtitle" data-i18n="rsvpSubtitle">Please let us know if you can join us</p>
             </div>
 
-            <form class="rsvp-form" id="rsvpForm">
+            <form class="rsvp-form" id="rsvpForm" novalidate>
                 <p class="required-note"><span class="required-indicator">*</span> <span data-i18n="requiredNote">Required field</span></p>
                 
-                <div class="form-group">
+                <div class="form-group" data-validate="required">
                     <label for="guestName"><span data-i18n="labelName">Your Name</span> <span class="required-indicator">*</span></label>
                     <input type="text" id="guestName" name="guestName" required data-i18n-placeholder="placeholderName">
+                    <div class="error-message" style="display: none;" data-i18n="errorNameRequired">Please enter your name</div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" data-validate="required">
                     <label><span data-i18n="labelAttendance">Will you be attending?</span> <span class="required-indicator">*</span></label>
                     <div class="radio-group">
                         <label class="radio-option">
@@ -87,11 +99,12 @@
                             <span class="radio-label" data-i18n="optionNo">Sorry, I can't make it</span>
                         </label>
                     </div>
+                    <div class="error-message" style="display: none;" data-i18n="errorAttendanceRequired">Please select an attendance option</div>
                 </div>
 
                 <div class="form-group guest-count-group" id="guestCountGroup" style="display: none;">
-                    <label for="guestCount" data-i18n="labelGuestCount">Number of Guests (including yourself)</label>
-                    <select id="guestCount" name="guestCount">
+                    <label for="adultCount" data-i18n="labelAdultCount">Number of Adults (including yourself)</label>
+                    <select id="adultCount" name="adultCount">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -99,6 +112,19 @@
                         <option value="5">5</option>
                         <option value="6">6+</option>
                     </select>
+                </div>
+
+                <div class="form-group children-count-group" id="childrenCountGroup" style="display: none;">
+                    <label for="childrenCount" data-i18n="labelChildrenCount">Number of Children</label>
+                    <select id="childrenCount" name="childrenCount">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5+</option>
+                    </select>
+                    <p class="field-note" data-i18n="childrenMenuNote">There will be separate menus for adults and children.</p>
                 </div>
 
                 <div class="form-group dietary-group" id="dietaryGroup" style="display: none;">
@@ -147,7 +173,11 @@
                 labelAttendance: 'Will you be attending?',
                 optionYes: "Yes, I'll be there!",
                 optionNo: "Sorry, I can't make it",
-                labelGuestCount: 'Number of Guests (including yourself)',
+                errorNameRequired: 'Please enter your name',
+                errorAttendanceRequired: 'Please select an attendance option',
+                labelAdultCount: 'Number of Adults (including yourself)',
+                labelChildrenCount: 'Number of Children',
+                childrenMenuNote: 'There will be separate menus for adults and children.',
                 labelDietary: 'Dietary Requirements (optional)',
                 placeholderDietary: 'Please let us know about any allergies or dietary restrictions...',
                 labelMessage: 'Message to Cansu and Mark (optional)',
@@ -169,7 +199,11 @@
                 labelAttendance: 'Wirst du dabei sein?',
                 optionYes: 'Ja, ich bin dabei!',
                 optionNo: 'Leider kann ich nicht kommen',
-                labelGuestCount: 'Anzahl der Gäste (inkl. dir selbst)',
+                errorNameRequired: 'Bitte gib deinen Namen ein',
+                errorAttendanceRequired: 'Bitte wähle eine Option aus',
+                labelAdultCount: 'Anzahl der Erwachsenen (inkl. dir selbst)',
+                labelChildrenCount: 'Anzahl der Kinder',
+                childrenMenuNote: 'Es wird separate Menüs für Erwachsene und Kinder geben.',
                 labelDietary: 'Ernährungsbesonderheiten (optional)',
                 placeholderDietary: 'Bitte teile uns Allergien oder Ernährungseinschränkungen mit...',
                 labelMessage: 'Nachricht an Cansu und Mark (optional)',
@@ -191,7 +225,11 @@
                 labelAttendance: 'Katılacak mısınız?',
                 optionYes: 'Evet, orada olacağım!',
                 optionNo: 'Üzgünüm, katılamıyorum',
-                labelGuestCount: 'Misafir Sayısı (kendiniz dahil)',
+                errorNameRequired: 'Lütfen adınızı girin',
+                errorAttendanceRequired: 'Lütfen bir katılım seçeneği seçin',
+                labelAdultCount: 'Yetişkin Sayısı (kendiniz dahil)',
+                labelChildrenCount: 'Çocuk Sayısı',
+                childrenMenuNote: 'Yetişkinler ve çocuklar için ayrı menüler olacaktır.',
                 labelDietary: 'Diyet Gereksinimleri (isteğe bağlı)',
                 placeholderDietary: 'Lütfen alerjilerinizi veya diyet kısıtlamalarınızı bildirin...',
                 labelMessage: 'Cansu ve Mark\'a Mesaj (isteğe bağlı)',
@@ -220,17 +258,93 @@
             radio.addEventListener('change', function() {
                 if (this.value === 'yes') {
                     guestCountGroup.style.display = 'block';
+                    document.getElementById('childrenCountGroup').style.display = 'block';
                     dietaryGroup.style.display = 'block';
                 } else {
                     guestCountGroup.style.display = 'none';
+                    document.getElementById('childrenCountGroup').style.display = 'none';
                     dietaryGroup.style.display = 'none';
                 }
+            });
+        });
+
+        // Validation helper functions
+        function showError(formGroup) {
+            formGroup.classList.add('has-error', 'shake');
+            const errorMsg = formGroup.querySelector('.error-message');
+            if (errorMsg) {
+                errorMsg.style.display = 'flex';
+                // Update error message text based on current language
+                const lang = i18n.getCurrentLanguage();
+                const i18nKey = errorMsg.getAttribute('data-i18n');
+                if (i18nKey && rsvpTranslations[lang] && rsvpTranslations[lang][i18nKey]) {
+                    errorMsg.textContent = rsvpTranslations[lang][i18nKey];
+                }
+            }
+            // Remove shake after animation
+            setTimeout(() => formGroup.classList.remove('shake'), 500);
+        }
+
+        function clearError(formGroup) {
+            formGroup.classList.remove('has-error', 'shake');
+            const errorMsg = formGroup.querySelector('.error-message');
+            if (errorMsg) {
+                errorMsg.style.display = 'none';
+            }
+        }
+
+        function validateForm() {
+            let isValid = true;
+            
+            // Validate name field
+            const nameInput = document.getElementById('guestName');
+            const nameGroup = nameInput.closest('.form-group');
+            if (!nameInput.value.trim()) {
+                showError(nameGroup);
+                isValid = false;
+            } else {
+                clearError(nameGroup);
+            }
+            
+            // Validate attendance radio
+            const attendanceChecked = document.querySelector('input[name="attendance"]:checked');
+            const attendanceGroup = document.querySelector('input[name="attendance"]').closest('.form-group');
+            if (!attendanceChecked) {
+                showError(attendanceGroup);
+                isValid = false;
+            } else {
+                clearError(attendanceGroup);
+            }
+            
+            return isValid;
+        }
+
+        // Clear errors on input
+        document.getElementById('guestName').addEventListener('input', function() {
+            if (this.value.trim()) {
+                clearError(this.closest('.form-group'));
+            }
+        });
+
+        attendanceRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                clearError(this.closest('.form-group'));
             });
         });
 
         // Form submission
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            // Validate form
+            if (!validateForm()) {
+                // Scroll to first error
+                const firstError = form.querySelector('.form-group.has-error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
             
             // Get form data
             const formData = new FormData(form);

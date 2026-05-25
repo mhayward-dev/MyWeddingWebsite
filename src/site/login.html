@@ -1,3 +1,4 @@
+<!-- بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ - Bismillah hir Rahman nir Raheem -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,7 +135,7 @@
                     const submitBtn = form.querySelector('button[type="submit"]');
                     const originalText = submitBtn.textContent;
                     submitBtn.disabled = true;
-                    submitBtn.textContent = '...';
+                    submitBtn.innerHTML = '<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span>';
                     errorEl.style.display = 'none';
                     
                     const result = await this.verifyPassword(password);
