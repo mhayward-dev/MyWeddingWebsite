@@ -1,5 +1,3 @@
-// بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ - Bismillah hir Rahman nir Raheem
-
 // Shared internationalization (i18n) module for civil ceremony website
 // Supports: English (en), German (de), Turkish (tr)
 

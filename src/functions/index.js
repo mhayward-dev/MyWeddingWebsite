@@ -1,5 +1,3 @@
-// بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ - Bismillah hir Rahman nir Raheem
-
 const { onRequest } = require("firebase-functions/v2/https");
 const { defineSecret } = require("firebase-functions/params");
 const { setGlobalOptions } = require("firebase-functions/v2");

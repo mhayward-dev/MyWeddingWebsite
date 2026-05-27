@@ -157,9 +157,28 @@
         <div class="botanical-decor bottom-right"></div>
         <h2 class="couple-names-small" data-i18n="coupleNames">Cansu & Mark<br>Civil Ceremony ♥ Celebration</h2>
         <p class="wedding-details-small" data-i18n="ceremonyDate">12 September 2026 ♥ Berlin</p>
+        
+        <div class="footer-contact">
+            <button class="copy-email" onclick="copyEmail(this)" data-email="hello@cansuandmark.com">
+                hello@cansuandmark.com
+                <span class="copy-feedback" data-i18n="copied">Copied!</span>
+            </button>
+        </div>
     </footer>
 
     <script src="js/i18n.js"></script>
+    <script>
+        // Copy email to clipboard with feedback
+        function copyEmail(button) {
+            const email = button.getAttribute('data-email');
+            navigator.clipboard.writeText(email).then(function() {
+                button.classList.add('copied');
+                setTimeout(function() {
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
     <script>
         // Page-specific translations for RSVP page
         const rsvpTranslations = {
