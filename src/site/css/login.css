@@ -92,8 +92,6 @@
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
-    -webkit-text-security: disc;
-    text-security: disc;
 }
 
 .auth-form .fake-password:focus {

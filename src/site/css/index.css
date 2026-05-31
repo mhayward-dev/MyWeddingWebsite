@@ -29,7 +29,10 @@ body {
 
 body {
     font-family: var(--font-sans);
-    background-color: var(--color-background);
+    background:
+        linear-gradient(135deg, rgba(248, 245, 242, 0.95) 0%, rgba(250, 248, 245, 0.9) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23f5f0eb" width="100" height="100"/></svg>');
+    background-attachment: fixed;
     color: var(--color-text);
     line-height: 1.6;
 }
@@ -77,9 +80,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 40px 20px 10px;
-    background:
-        linear-gradient(135deg, rgba(248, 245, 242, 0.95) 0%, rgba(250, 248, 245, 0.9) 100%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23f5f0eb" width="100" height="100"/></svg>');
     overflow: hidden;
 }
 
@@ -219,8 +219,6 @@ body {
     letter-spacing: 0.15em;
     margin: 0;
 }
-
-
 
 .couple-names {
     font-family: var(--font-script);
@@ -500,14 +498,22 @@ body {
 }
 
 /* Footer Styles */
-.couple-names-small {
+.footer-monogram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
     font-family: var(--font-serif);
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 400;
-    font-style: italic;
+    color: var(--color-text);
+    letter-spacing: 0.3em;
+}
+
+.footer-monogram .divider {
     color: var(--color-primary);
-    margin-bottom: 5px;
-    line-height: 1.1;
+    font-weight: 300;
 }
 
 .wedding-details-small {
@@ -727,8 +733,7 @@ body {
    ================================ */
 
 .timeline-section {
-    padding: 30px 20px 80px;
-    background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 50%, #faf8f5 100%);
+    padding: 0 20px;
     min-height: 100vh;
     text-align: center;
     position: relative;
@@ -758,41 +763,22 @@ body {
 }
 
 /* Main heading */
-.timeline-heading {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 15px;
-    padding-top: 0;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
+.timeline-date-heading {
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 20px;
     /* Initial hidden state for animation */
     opacity: 0;
     transform: translateY(30px);
 }
 
-/* Turkish: "Evet diyoruz" - reverse order so Evet (script) appears first */
-html[lang="tr"] .timeline-heading {
-    flex-direction: row-reverse;
-}
-
-.timeline-title-main {
-    font-family: var(--font-sans);
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    font-weight: 400;
-    letter-spacing: 0.4em;
-    color: var(--color-text);
-    margin: 0;
-}
-
-.timeline-title-script {
-    font-family: var(--font-script);
-    font-size: clamp(4rem, 10vw, 5rem);
-    font-weight: 400;
-    color: var(--color-primary);
-    line-height: 0.8;
-    position: relative;
-    top: 5px;
+.timeline-date-heading .date-dot {
+    display: inline-block;
+    transform: translateY(-0.15em);
 }
 
 /* Decorative divider with heart */
@@ -801,7 +787,7 @@ html[lang="tr"] .timeline-heading {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    margin: 40px auto 50px;
+    margin: 0 auto 50px;
     max-width: 300px;
     opacity: 0;
     animation: fadeInDivider 1s ease-out forwards;
@@ -874,14 +860,35 @@ html[lang="tr"] .timeline-heading {
     max-width: 600px;
     margin: 60px auto;
     padding-left: 80px;
+    padding-right: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: linear-gradient(135deg, rgba(166, 124, 124, 0.06) 0%, rgba(255, 255, 255, 1) 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px var(--color-shadow);
+    border: 1px solid var(--color-primary-light);
+    border-left: 4px solid var(--color-primary);
+}
+
+/* Timeline title */
+.timeline-title {
+    text-align: center;
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin: 0 0 30px 0;
+    margin-left: -20px; /* Compensate for asymmetric container padding (80px left - 40px right) / 2 */
+    padding-bottom: 15px;
 }
 
 /* Vertical timeline line */
 .timeline-line {
     position: absolute;
     left: 50px;
-    top: 30px;
-    bottom: 30px;
+    top: 80px;
+    bottom: 120px;
     width: 1px;
     background: linear-gradient(to bottom, 
         var(--color-primary-light) 0%, 
@@ -908,10 +915,10 @@ html[lang="tr"] .timeline-heading {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.timeline-container.timeline-animate .timeline-event:nth-child(2) { animation-delay: 0.3s; }
-.timeline-container.timeline-animate .timeline-event:nth-child(3) { animation-delay: 0.6s; }
-.timeline-container.timeline-animate .timeline-event:nth-child(4) { animation-delay: 0.9s; }
-.timeline-container.timeline-animate .timeline-event:nth-child(5) { animation-delay: 1.2s; }
+.timeline-container.timeline-animate .timeline-event:nth-child(3) { animation-delay: 0.3s; }
+.timeline-container.timeline-animate .timeline-event:nth-child(4) { animation-delay: 0.6s; }
+.timeline-container.timeline-animate .timeline-event:nth-child(5) { animation-delay: 0.9s; }
+.timeline-container.timeline-animate .timeline-event:nth-child(6) { animation-delay: 1.2s; }
 
 .timeline-event:last-child {
     margin-bottom: 0;
@@ -988,45 +995,13 @@ html[lang="tr"] .timeline-heading {
     margin: 0;
 }
 
-/* Timeline footer */
-.timeline-footer {
-    margin-top: 60px;
-    text-align: center;
-    /* Initial hidden state for animation */
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.heart-small {
-    display: block;
-    font-size: 1.2rem;
-    color: var(--color-primary);
-    margin-bottom: 15px;
-    opacity: 0.7;
-}
-
-.timeline-footer-text {
-    font-family: var(--font-script);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    font-weight: 400;
-    color: var(--color-primary);
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.timeline-signature {
-    font-family: var(--font-script);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    color: var(--color-primary);
-    margin: 0;
-}
-
 /* Download Timeline Button */
 .download-timeline-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    margin-top: 20px;
+    margin: 20px auto 0;
     padding: 14px 32px;
     font-family: var(--font-sans);
     font-size: 0.95rem;
@@ -1040,6 +1015,9 @@ html[lang="tr"] .timeline-heading {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     opacity: 0;
+    width: fit-content;
+    position: relative;
+    left: -20px;
 }
 
 .download-timeline-btn:hover {
@@ -1052,10 +1030,6 @@ html[lang="tr"] .timeline-heading {
     transform: translateY(-1px);
 }
 
-.download-icon {
-    width: 20px;
-    height: 20px;
-}
 
 .timeline-section.animate .download-timeline-btn {
     animation: fadeInUp 0.8s ease-out 0.7s forwards;
@@ -1067,8 +1041,8 @@ html[lang="tr"] .timeline-heading {
     flex-direction: column;
     align-items: center;
     gap: 1.2rem;
-    margin-top: 3rem;
-    padding-top: 2rem;
+    margin-top: 0;
+    padding-top: 0;
     opacity: 0;
 }
 
@@ -1091,13 +1065,13 @@ html[lang="tr"] .timeline-heading {
 }
 
 /* Timeline section animation trigger */
-.timeline-section.animate .timeline-heading,
+.timeline-section.animate .timeline-date-heading,
 .timeline-section.animate .timeline-monogram,
 .timeline-section.animate .timeline-footer {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.timeline-section.animate .timeline-heading { animation-delay: 0.1s; }
+.timeline-section.animate .timeline-date-heading { animation-delay: 0.1s; }
 .timeline-section.animate .timeline-footer { animation-delay: 0.7s; }
 
 /* Timeline responsive adjustments */
@@ -1108,7 +1082,15 @@ html[lang="tr"] .timeline-heading {
 
     .timeline-container {
         padding-left: 70px;
-        margin: 40px auto;
+        padding-right: 30px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        margin: 50px auto;
+    }
+
+    .timeline-title {
+        font-size: 1.2rem;
+        margin-left: -20px; /* Compensate for asymmetric padding (70px - 30px) / 2 */
     }
 
     .timeline-line {
@@ -1145,12 +1127,20 @@ html[lang="tr"] .timeline-heading {
 
 @media (max-width: 480px) {
     .timeline-section {
-        padding: 60px 15px;
+        padding: 0 15px;
         min-height: auto;
     }
 
     .timeline-container {
         padding-left: 55px;
+        padding-right: 20px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .timeline-title {
+        font-size: 1rem;
+        margin-left: -17px; /* Compensate for asymmetric padding (55px - 20px) / 2 */
     }
 
     .timeline-line {
@@ -1177,17 +1167,8 @@ html[lang="tr"] .timeline-heading {
         padding-left: 15px;
     }
 
-    .timeline-heading {
-        gap: 10px;
-    }
-
-    .timeline-title-main {
-        letter-spacing: 0.2em;
-        font-size: clamp(0.9rem, 4vw, 1.2rem);
-    }
-
-    .timeline-title-script {
-        font-size: 4rem;
+    .timeline-date-heading {
+        font-size: 1.2rem;
     }
 
     .timeline-botanical {
@@ -1210,9 +1191,6 @@ html[lang="tr"] .timeline-heading {
 .site-footer {
     text-align: center;
     padding: 30px 20px 30px;
-    background:
-        linear-gradient(135deg, rgba(248, 245, 242, 0.95) 0%, rgba(250, 248, 245, 0.9) 100%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23f5f0eb" width="100" height="100"/></svg>');
     position: relative;
     overflow: hidden;
     min-height: 280px;
@@ -1258,7 +1236,7 @@ html[lang="tr"] .timeline-heading {
     font-family: var(--font-serif);
     font-size: clamp(1rem, 2vw, 1.3rem);
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     color: var(--color-text-light);
     letter-spacing: 0.1em;
     margin-bottom: 15px;
@@ -1309,16 +1287,6 @@ html[lang="tr"] .timeline-heading {
     margin-bottom: 18px;
 }
 
-.countdown-thanks {
-    font-family: var(--font-sans);
-    font-size: clamp(0.85rem, 1.5vw, 1rem);
-    font-weight: 300;
-    color: var(--color-text-light);
-    letter-spacing: 0.05em;
-    margin-bottom: 20px;
-    z-index: 1;
-}
-
 .footer-contact {
     margin-top: 25px;
     display: flex;
@@ -1333,7 +1301,7 @@ html[lang="tr"] .timeline-heading {
    ================================ */
 
 .directions-section {
-    padding: 80px 20px;
+    padding: 0 20px;
     background-color: var(--color-background);
     text-align: center;
 }
@@ -1344,7 +1312,7 @@ html[lang="tr"] .timeline-heading {
     font-weight: 400;
     letter-spacing: 0.4em;
     color: var(--color-text);
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .directions-divider {
@@ -1401,8 +1369,8 @@ html[lang="tr"] .timeline-heading {
 }
 
 .venue-icon {
-    width: 180px;
-    height: 180px;
+    width: 300px;
+    height: 200px;
     margin: 0 auto 20px;
     border-radius: 6px;
     overflow: hidden;
@@ -1510,7 +1478,7 @@ html[lang="tr"] .timeline-heading {
 /* Directions responsive adjustments */
 @media (max-width: 768px) {
     .directions-section {
-        padding: 60px 20px;
+        padding: 0 20px;
     }
 
     .venues-container {
@@ -1524,7 +1492,7 @@ html[lang="tr"] .timeline-heading {
 
 @media (max-width: 480px) {
     .directions-section {
-        padding: 50px 15px;
+        padding: 0 15px;
     }
 
     .directions-title {
@@ -1541,12 +1509,117 @@ html[lang="tr"] .timeline-heading {
 }
 
 /* ================================
+   Photos Section
+   ================================ */
+
+.photos-section {
+    padding: 0 20px;
+    background-color: var(--color-background);
+    text-align: center;
+}
+
+.photos-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+.photos-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 0 auto 30px;
+    max-width: 300px;
+    padding-top: 50px;
+}
+
+.photos-divider .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--color-primary-light);
+}
+
+.photos-divider .divider-heart {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    opacity: 0.7;
+}
+
+.photos-intro {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-light);
+    margin-bottom: 50px;
+}
+
+.photos-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Photos section info item - featured style */
+.photos-section .info-item {
+    background: linear-gradient(135deg, rgba(166, 124, 124, 0.06) 0%, rgba(255, 255, 255, 1) 100%);
+    border-left: 4px solid var(--color-primary);
+    padding: 40px 35px;
+}
+
+.photos-section .info-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--color-primary);
+}
+
+.photos-section .info-icon svg {
+    color: var(--color-white);
+}
+
+/* Photos Section Animations */
+.photos-section .photos-title,
+.photos-section .photos-divider,
+.photos-section .photos-intro,
+.photos-section .info-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.photos-section.animate .photos-title {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.photos-section.animate .photos-divider {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.photos-section.animate .photos-intro {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.photos-section.animate .info-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+/* ================================
    A Few More Things Section
    ================================ */
 
 .more-things-section {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 50%, #faf8f5 100%);
+    padding: 0 20px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -1569,6 +1642,7 @@ html[lang="tr"] .timeline-heading {
     gap: 15px;
     margin: 0 auto 50px;
     max-width: 300px;
+    padding-top: 50px;
 }
 
 .more-things-divider .divider-line {
@@ -1723,7 +1797,7 @@ html[lang="tr"] .timeline-heading {
 /* More Things responsive adjustments */
 @media (max-width: 768px) {
     .more-things-section {
-        padding: 60px 15px;
+        padding: 0 15px;
     }
 
     .info-item {
@@ -1755,7 +1829,7 @@ html[lang="tr"] .timeline-heading {
 
 @media (max-width: 480px) {
     .more-things-section {
-        padding: 50px 10px;
+        padding: 0 10px;
     }
 
     .info-item {

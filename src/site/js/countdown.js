@@ -1,7 +1,8 @@
 // Countdown Timer - Reusable module for wedding countdown
 (function() {
     function updateCountdown() {
-        const weddingDate = new Date('2026-09-12T15:20:00');
+        // Wedding date: September 12, 2026 at 15:20 Berlin time (CEST = UTC+2)
+        const weddingDate = new Date('2026-09-12T15:20:00+02:00');
         const now = new Date();
         const diff = weddingDate - now;
         
