@@ -155,18 +155,39 @@
     <footer class="site-footer">
         <div class="botanical-decor bottom-left"></div>
         <div class="botanical-decor bottom-right"></div>
+        
+        <!-- Countdown Timer -->
+        <p class="countdown-title" data-i18n="countdownTitle">Until we say yes</p>
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <span class="countdown-number" id="countdown-days">000</span>
+                <span class="countdown-label" data-i18n="countdownDays">Days</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="countdown-hours">00</span>
+                <span class="countdown-label" data-i18n="countdownHours">Hours</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="countdown-minutes">00</span>
+                <span class="countdown-label" data-i18n="countdownMinutes">Minutes</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="countdown-seconds">00</span>
+                <span class="countdown-label" data-i18n="countdownSeconds">Seconds</span>
+            </div>
+        </div>
+        
+        <p class="countdown-thanks" data-i18n="countdownThanks">Thank you for celebrating this special day with us.</p>
+        
         <h2 class="couple-names-small" data-i18n="coupleNames">Cansu & Mark<br>Civil Ceremony ♥ Celebration</h2>
         <p class="wedding-details-small" data-i18n="ceremonyDate">12 September 2026 ♥ Berlin</p>
-        
-        <div class="footer-contact">
-            <button class="copy-email" onclick="copyEmail(this)" data-email="hello@cansuandmark.com">
-                hello@cansuandmark.com
-                <span class="copy-feedback" data-i18n="copied">Copied!</span>
-            </button>
-        </div>
     </footer>
 
     <script src="js/i18n.js"></script>
+    <script src="js/countdown.js"></script>
     <script>
         // Copy email to clipboard with feedback
         function copyEmail(button) {

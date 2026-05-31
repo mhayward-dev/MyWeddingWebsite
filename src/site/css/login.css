@@ -83,7 +83,7 @@
     gap: 16px;
 }
 
-.auth-form input[type="password"] {
+.auth-form .fake-password {
     padding: 14px 18px;
     font-size: 1rem;
     border: 2px solid #c9a9a9;
@@ -92,9 +92,11 @@
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
+    -webkit-text-security: disc;
+    text-security: disc;
 }
 
-.auth-form input[type="password"]:focus {
+.auth-form .fake-password:focus {
     border-color: #a67c7c;
     box-shadow: 0 0 0 3px rgba(166, 124, 124, 0.15);
 }

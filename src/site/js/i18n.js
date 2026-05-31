@@ -12,6 +12,12 @@ const i18n = (function() {
             coupleNames: 'Cansu & Mark',
             contactLabel: 'Email:',
             copied: 'Copied!',
+            countdownTitle: 'Until we say yes',
+            countdownDays: 'Days',
+            countdownHours: 'Hours',
+            countdownMinutes: 'Minutes',
+            countdownSeconds: 'Seconds',
+            countdownThanks: 'Thank you for celebrating this special day with us.',
         },
         de: {
             ceremonyTitle: 'Standesamtliche Trauung',
@@ -21,6 +27,12 @@ const i18n = (function() {
             coupleNames: 'Cansu & Mark',
             contactLabel: 'E-Mail:',
             copied: 'Kopiert!',
+            countdownTitle: 'Bis wir Ja sagen',
+            countdownDays: 'Tage',
+            countdownHours: 'Stunden',
+            countdownMinutes: 'Minuten',
+            countdownSeconds: 'Sekunden',
+            countdownThanks: 'Danke, dass ihr diesen besonderen Tag mit uns feiert.',
         },
         tr: {
             ceremonyTitle: 'Resmi Nikah',
@@ -30,6 +42,12 @@ const i18n = (function() {
             coupleNames: 'Cansu & Mark',
             contactLabel: 'E-posta:',
             copied: 'Kopyalandı!',
+            countdownTitle: 'Evet diyene kadar',
+            countdownDays: 'Gün',
+            countdownHours: 'Saat',
+            countdownMinutes: 'Dakika',
+            countdownSeconds: 'Saniye',
+            countdownThanks: 'Bu özel günü bizimle kutladığınız için teşekkür ederiz.',
         }
     };
 
