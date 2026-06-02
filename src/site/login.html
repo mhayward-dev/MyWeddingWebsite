@@ -47,7 +47,7 @@
             <h3 class="auth-invitation" data-i18n="authInvitation">Invitation to Our Civil Ceremony</h3>
             <p class="auth-subtitle" data-i18n="authSubtitle">Please enter the code to view this page</p>
             <form id="authForm" class="auth-form" novalidate>
-                <input type="text" id="authPassword" class="fake-password" data-i18n-placeholder="codePlaceholder" placeholder="Enter code" autocomplete="off" data-lpignore="true" data-form-type="other" required>
+                <input type="text" id="authPassword" class="fake-password" data-i18n-placeholder="codePlaceholder" placeholder="Enter code" autocomplete="off" data-lpignore="true" data-form-type="other" readonly onfocus="this.removeAttribute('readonly');" required>
                 <button type="submit" data-i18n="enterButton">Enter</button>
             </form>
             <p id="authError" class="auth-error" style="display: none;" data-i18n="authError">Incorrect password</p>
@@ -123,9 +123,6 @@
                 const form = document.getElementById('authForm');
                 const input = document.getElementById('authPassword');
                 const errorEl = document.getElementById('authError');
-
-                // Focus password input
-                setTimeout(() => input.focus(), 100);
 
                 // Hide error when user starts typing
                 input.addEventListener('input', () => {

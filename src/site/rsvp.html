@@ -125,6 +125,19 @@
                     <p class="field-note" data-i18n="childrenMenuNote">There will be separate menus for adults and children.</p>
                 </div>
 
+                <div class="form-group babies-count-group" id="babiesCountGroup" style="display: none;">
+                    <label for="babiesCount" data-i18n="labelBabiesCount">Number of Babies</label>
+                    <select id="babiesCount" name="babiesCount">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5+</option>
+                    </select>
+                    <p class="field-note" data-i18n="babiesMenuNote">Under 2 years old.</p>
+                </div>
+
                 <div class="form-group dietary-group" id="dietaryGroup" style="display: none;">
                     <label for="dietary" data-i18n="labelDietary">Dietary Requirements (optional)</label>
                     <textarea id="dietary" name="dietary" rows="3" data-i18n-placeholder="placeholderDietary"></textarea>
@@ -214,6 +227,8 @@
                 labelAdultCount: 'Number of Adults (including yourself)',
                 labelChildrenCount: 'Number of Children',
                 childrenMenuNote: 'There will be separate menus for adults and children.',
+                labelBabiesCount: 'Number of Babies',
+                babiesMenuNote: 'Under 2 years old.',
                 labelDietary: 'Dietary Requirements (optional)',
                 placeholderDietary: 'Please let us know about any allergies or dietary restrictions...',
                 labelMessage: 'Message to Cansu and Mark (optional)',
@@ -239,6 +254,8 @@
                 labelAdultCount: 'Anzahl der Erwachsenen (inkl. dir selbst)',
                 labelChildrenCount: 'Anzahl der Kinder',
                 childrenMenuNote: 'Es wird separate Menüs für Erwachsene und Kinder geben.',
+                labelBabiesCount: 'Anzahl der Babys',
+                babiesMenuNote: 'Unter 2 Jahre alt.',
                 labelDietary: 'Ernährungsbesonderheiten (optional)',
                 placeholderDietary: 'Bitte teile uns Allergien oder Ernährungseinschränkungen mit...',
                 labelMessage: 'Nachricht an Cansu und Mark (optional)',
@@ -264,6 +281,8 @@
                 labelAdultCount: 'Yetişkin Sayısı (kendiniz dahil)',
                 labelChildrenCount: 'Çocuk Sayısı',
                 childrenMenuNote: 'Yetişkinler ve çocuklar için ayrı menüler olacaktır.',
+                labelBabiesCount: 'Bebek Sayısı',
+                babiesMenuNote: '2 yaşın altında.',
                 labelDietary: 'Diyet Gereksinimleri (isteğe bağlı)',
                 placeholderDietary: 'Lütfen alerjilerinizi veya diyet kısıtlamalarınızı bildirin...',
                 labelMessage: 'Cansu ve Mark\'a Mesaj (isteğe bağlı)',
@@ -293,10 +312,12 @@
                 if (this.value === 'yes') {
                     guestCountGroup.style.display = 'block';
                     document.getElementById('childrenCountGroup').style.display = 'block';
+                    document.getElementById('babiesCountGroup').style.display = 'block';
                     dietaryGroup.style.display = 'block';
                 } else {
                     guestCountGroup.style.display = 'none';
                     document.getElementById('childrenCountGroup').style.display = 'none';
+                    document.getElementById('babiesCountGroup').style.display = 'none';
                     dietaryGroup.style.display = 'none';
                 }
             });

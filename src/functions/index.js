@@ -67,13 +67,14 @@ async function appendToGoogleSheets(rsvpData, sheetId) {
     rsvpData.attendance,
     rsvpData.adultCount || "N/A",
     rsvpData.childrenCount || "0",
+    rsvpData.babiesCount || "0",
     rsvpData.dietary || "None",
     rsvpData.message || "None"
   ]];
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: sheetId,
-    range: "RSVPs!A:G",
+    range: "RSVPs!A:H",
     valueInputOption: "USER_ENTERED",
     requestBody: { values }
   });
@@ -140,6 +141,7 @@ exports.submitRsvp = onRequest(
       if (attending) {
         telegramMsg += `<b>Adults:</b> ${rsvpData.adultCount || 1}\n`;
         telegramMsg += `<b>Children:</b> ${rsvpData.childrenCount || 0}\n`;
+        telegramMsg += `<b>Babies:</b> ${rsvpData.babiesCount || 0}\n`;
         if (rsvpData.dietary) {
           telegramMsg += `<b>Dietary:</b> ${rsvpData.dietary}\n`;
         }
