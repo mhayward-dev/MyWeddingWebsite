@@ -69,12 +69,20 @@
     font-weight: 500;
 }
 
+.auth-invitation {
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #6b5050;
+    margin-bottom: 16px;
+    font-weight: 400;
+}
+
 .auth-subtitle {
     font-family: 'Lato', Arial, sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     color: #8b7070;
     margin-bottom: 30px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .auth-form {
@@ -180,7 +188,11 @@
         font-size: 1.8rem;
     }
     
+    .auth-invitation {
+        font-size: 1.2rem;
+    }
+    
     .auth-subtitle {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }

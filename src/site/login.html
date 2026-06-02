@@ -43,9 +43,10 @@
                 </button>
             </div>
 
-            <h2 class="auth-title" data-i18n="authTitle">Cansu & Mark<br>Civil Ceremony</h2>
+            <h2 class="auth-title" data-i18n="authTitle">Cansu & Mark</h2>
+            <h3 class="auth-invitation" data-i18n="authInvitation">Invitation to Our Civil Ceremony</h3>
             <p class="auth-subtitle" data-i18n="authSubtitle">Please enter the code to view this page</p>
-            <form id="authForm" class="auth-form">
+            <form id="authForm" class="auth-form" novalidate>
                 <input type="text" id="authPassword" class="fake-password" data-i18n-placeholder="codePlaceholder" placeholder="Enter code" autocomplete="off" data-lpignore="true" data-form-type="other" required>
                 <button type="submit" data-i18n="enterButton">Enter</button>
             </form>
@@ -126,11 +127,25 @@
                 // Focus password input
                 setTimeout(() => input.focus(), 100);
 
+                // Hide error when user starts typing
+                input.addEventListener('input', () => {
+                    if (errorEl.style.display === 'block') {
+                        errorEl.style.display = 'none';
+                    }
+                });
+
                 form.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     
                     const password = input.value.trim();
-                    if (!password) return;
+                    if (!password) {
+                        const lang = i18n.getCurrentLanguage();
+                        const translations = loginTranslations[lang];
+                        errorEl.textContent = translations.authError;
+                        errorEl.style.display = 'block';
+                        input.focus();
+                        return;
+                    }
                     
                     const submitBtn = form.querySelector('button[type="submit"]');
                     const originalText = submitBtn.textContent;
@@ -143,7 +158,19 @@
                     if (result.success) {
                         window.location.replace(this.getRedirectUrl());
                     } else {
-                        errorEl.textContent = result.error;
+                        // Get current language and appropriate error message
+                        const lang = i18n.getCurrentLanguage();
+                        const translations = loginTranslations[lang];
+                        
+                        // Determine which error message to show
+                        let errorMessage;
+                        if (result.error.includes('Connection error') || result.error.includes('Connection')) {
+                            errorMessage = translations.connectionError;
+                        } else {
+                            errorMessage = translations.authError;
+                        }
+                        
+                        errorEl.textContent = errorMessage;
                         errorEl.style.display = 'block';
                         input.value = '';
                         input.focus();
@@ -158,7 +185,8 @@
         const loginTranslations = {
             en: {
                 pageTitle: "Login - Cansu & Mark ♥ Civil Ceremony",
-                authTitle: "Cansu & Mark<br>Civil Ceremony",
+                authTitle: "Cansu & Mark",
+                authInvitation: "Invitation to Our Civil Ceremony",
                 authSubtitle: 'Please enter the code to view this page',
                 codePlaceholder: 'Enter code',
                 enterButton: 'Enter',
@@ -167,7 +195,8 @@
             },
             de: {
                 pageTitle: 'Login - Cansu & Mark ♥ Standesamtliche Trauung',
-                authTitle: 'Cansu & Mark<br>Standesamtliche Trauung',
+                authTitle: 'Cansu & Mark',
+                authInvitation: 'Einladung zum Standesamt',
                 authSubtitle: 'Zum Öffnen dieser Seite bitte den Code eingeben.',
                 codePlaceholder: 'Code eingeben',
                 enterButton: 'Eintreten',
@@ -175,9 +204,10 @@
                 connectionError: 'Verbindungsfehler. Bitte versuche es erneut.'
             },
             tr: {
-                pageTitle: "Giriş - Cansu & Mark ♥ Resmi Nikahı",
-                authTitle: "Cansu & Mark<br>Resmi Nikahı",
-                authSubtitle: 'Bu sayfayı görüntülemek için kodu girin',
+                pageTitle: "Giriş - Cansu & Mark ♥ Nikah",
+                authTitle: "Cansu & Mark",
+                authInvitation: 'Nikâh Daveti',
+                authSubtitle: 'Sayfayı görüntülemek için şifreyi girin.',
                 codePlaceholder: 'Kodu girin',
                 enterButton: 'Giriş',
                 authError: 'Yanlış şifre',

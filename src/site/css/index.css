@@ -1234,7 +1234,7 @@ body {
 /* Countdown Timer */
 .countdown-title {
     font-family: var(--font-serif);
-    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
     font-weight: 400;
     font-style: normal;
     color: var(--color-text-light);

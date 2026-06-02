@@ -30,16 +30,16 @@
 }
 
 .rsvp-intro {
+    margin-top: 20px;
     margin-bottom: 40px;
     animation: fadeInUp 1s ease-out 0.2s both;
 }
 
 .rsvp-title {
-    font-family: var(--font-sans);
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    font-weight: 400;
-    letter-spacing: 0.3em;
-    color: var(--color-text);
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--color-primary);
     margin-bottom: 10px;
 }
 
