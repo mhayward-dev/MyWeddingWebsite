@@ -126,6 +126,7 @@ body {
 .hero-content {
     max-width: 1200px;
     width: 100%;
+    padding: 0 15px;
     text-align: center;
     z-index: 1;
 }
@@ -141,6 +142,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0;
+    padding: 0 10px;
 }
 
 .hero-monogram {
@@ -319,11 +321,12 @@ body {
 }
 
 .hero-intro {
-    max-width: 720px;
+    max-width: 800px;
     margin: 30px auto 40px;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     opacity: 0;
     animation: fadeInUp 1s ease-out 0.5s forwards;
 }
@@ -335,6 +338,9 @@ body {
     color: var(--color-text);
     line-height: 1.9;
     letter-spacing: 0.01em;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* RSVP CTA Button */
@@ -559,6 +565,19 @@ body {
         width: 120px;
         height: 120px;
     }
+
+    .hero-intro {
+        padding: 0 25px;
+        gap: 14px;
+    }
+
+    .hero-intro-text {
+        line-height: 2;
+    }
+
+    .hero-header {
+        margin-bottom: 40px;
+    }
 }
 
 @media (max-width: 650px) {
@@ -624,6 +643,29 @@ body {
         min-height: auto;
         padding: 20px 10px;
     }
+
+    .hero-intro {
+        padding: 0 20px;
+        gap: 16px;
+        margin: 25px auto 35px;
+    }
+
+    .hero-intro-text {
+        line-height: 2.1;
+        letter-spacing: 0;
+    }
+
+    .hero-signature {
+        margin: 25px auto 35px;
+    }
+
+    .hero-header {
+        margin-bottom: 35px;
+    }
+
+    .ceremony-heading {
+        padding: 0 15px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -664,8 +706,74 @@ body {
     }
 
     .hero-intro {
-        max-width: 360px;
-        gap: 16px;
+        max-width: 100%;
+        gap: 18px;
+        padding: 0 16px;
+        margin: 20px auto 30px;
+    }
+
+    .hero-intro-text {
+        line-height: 2.2;
+        letter-spacing: 0;
+        font-size: clamp(1rem, 4vw, 1.15rem);
+    }
+
+    .hero-signature {
+        margin: 20px auto 30px;
+    }
+
+    .language-bar {
+        padding: 15px 15px 25px;
+    }
+
+    .hero-header {
+        margin-bottom: 30px;
+    }
+
+    .ceremony-heading {
+        padding: 0 12px;
+    }
+
+    .ceremony-title-main {
+        letter-spacing: 0.06em;
+    }
+
+    .ceremony-date {
+        letter-spacing: 0.12em;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .hero-content {
+        padding: 0 10px;
+    }
+
+    .ceremony-heading {
+        padding: 0 5px;
+    }
+
+    .hero-intro {
+        gap: 20px;
+        padding: 0 12px;
+    }
+
+    .hero-intro-text {
+        line-height: 2.3;
+        font-size: clamp(0.95rem, 4.5vw, 1.1rem);
+    }
+
+    .ceremony-title-main {
+        letter-spacing: 0.05em;
+    }
+
+    .ceremony-date {
+        letter-spacing: 0.1em;
+    }
+
+    .language-bar {
+        padding: 12px 12px 20px;
+        gap: 6px;
     }
 }
 
