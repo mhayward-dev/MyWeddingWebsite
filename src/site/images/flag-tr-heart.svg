@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <defs>
+    <clipPath id="heart-tr">
+      <path d="M50 90 C20 60, 0 40, 0 25 C0 10, 15 0, 30 0 C40 0, 50 10, 50 20 C50 10, 60 0, 70 0 C85 0, 100 10, 100 25 C100 40, 80 60, 50 90 Z"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#heart-tr)">
+    <!-- Red background -->
+    <rect fill="#E30A17" width="100" height="100"/>
+    <!-- White crescent (outer circle) -->
+    <circle fill="#fff" cx="38" cy="45" r="22"/>
+    <!-- Red crescent (inner circle) -->
+    <circle fill="#E30A17" cx="43" cy="45" r="18"/>
+    <!-- White star -->
+    <polygon fill="#fff" points="62,45 56.5,47.5 56.5,53.5 52,49 46.5,51 50,45 46.5,39 52,41 56.5,36.5 56.5,42.5"/>
+  </g>
+</svg>

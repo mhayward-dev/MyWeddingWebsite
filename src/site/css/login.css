@@ -39,8 +39,6 @@
 
 .flag-icon {
     display: block;
-    border-radius: 3px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 
 .auth-container {

@@ -6,6 +6,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cansu & Mark ♥ Civil Ceremony</title>
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cansuandmark.com/">
+    <meta property="og:title" content="Cansu & Mark ♥ Invitation">
+    <meta property="og:description" content="Join our celebration! 🎉 Feiert mit uns! 🎊 Birlikte kutlayalım!">
+    <meta property="og:image" content="https://cansuandmark.com/images/w8zq5r3k_og.jpg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="de_DE">
+    <meta property="og:locale:alternate" content="tr_TR">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://cansuandmark.com/">
+    <meta name="twitter:title" content="Cansu & Mark ♥ Invitation">
+    <meta name="twitter:description" content="Join our celebration! 🎉 Feiert mit uns! 🎊 Birlikte kutlayalım!">
+    <meta name="twitter:image" content="https://cansuandmark.com/images/w8zq5r3k_og.jpg">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,32 +49,13 @@
     <!-- Language Selector -->
     <div class="language-bar">
         <button class="lang-btn" data-lang="en" title="English">
-            <svg class="flag-icon" viewBox="0 0 60 30" width="32" height="16">
-                <clipPath id="t">
-                    <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
-                </clipPath>
-                <path d="M0,0 v30 h60 v-30 z" fill="#00247d" />
-                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
-                <path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#t)" stroke="#cf142b" stroke-width="4" />
-                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
-                <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" stroke-width="6" />
-            </svg>
+            <img class="flag-icon" src="images/flag-uk-heart.svg" alt="English" width="44" height="44">
         </button>
         <button class="lang-btn" data-lang="de" title="Deutsch">
-            <svg class="flag-icon" viewBox="0 0 5 3" width="32" height="20">
-                <rect width="5" height="3" fill="#000" />
-                <rect width="5" height="2" y="1" fill="#D00" />
-                <rect width="5" height="1" y="2" fill="#FFCE00" />
-            </svg>
+            <img class="flag-icon" src="images/flag-de-heart.svg" alt="Deutsch" width="44" height="44">
         </button>
         <button class="lang-btn" data-lang="tr" title="Türkçe">
-            <svg class="flag-icon" viewBox="0 0 1200 800" width="32" height="20">
-                <rect fill="#E30A17" width="1200" height="800" />
-                <circle fill="#fff" cx="425" cy="400" r="200" />
-                <circle fill="#E30A17" cx="475" cy="400" r="160" />
-                <polygon fill="#fff"
-                    points="650,400 609,414 609,457 583,422 542,435 567,400 542,365 583,378 609,343 609,387" />
-            </svg>
+            <img class="flag-icon" src="images/flag-tr-heart.svg" alt="Türkçe" width="44" height="44">
         </button>
     </div>
 
@@ -436,7 +436,6 @@
         const homeTranslations = {
             en: {
                 pageTitle: "Cansu & Mark ♥ Civil Ceremony",
-                downloadTimeline: 'Download Program',
                 heroIntro1: 'Dear family and friends,',
                 heroIntro2: 'We would love to celebrate our special day with you.',
                 heroIntro3: 'We warmly invite you to join us for our civil wedding ceremony and celebration on<br>12th September 2026 in Berlin.',
@@ -445,7 +444,8 @@
                 rsvpLabel: 'Can you join us?',
                 scrollDown: 'Or scroll down for information',
                 saveTheDetails: 'Save the details for our special day!',
-                timelineTitle: 'PROGRAM',
+                timelineTitle: 'SCHEDULE',
+                downloadTimeline: 'Download Schedule',
                 event1Time: '2:45 PM',
                 event1Title: 'ARRIVAL AT THE CIVIL OFFICE STANDESAMT SCHÖNEBERG',
                 event1Desc: 'Please arrive by 2:45 PM so the ceremony can start on time.',
@@ -471,7 +471,6 @@
             },
             de: {
                 pageTitle: 'Cansu & Mark ♥ Standesamtliche Trauung',
-                downloadTimeline: 'Programm Herunterladen',
                 heroIntro1: 'Liebe Familie, liebe Freunde,',
                 heroIntro2: 'ein besonderer Tag liegt vor uns und wir möchten ihn gerne mit euch teilen.',
                 heroIntro3: 'Wir laden euch herzlich zu unserer standesamtlichen Trauung und der anschließenden Feier am<br>12. September 2026 in Berlin ein.',
@@ -480,7 +479,8 @@
                 rsvpLabel: 'Seid ihr dabei?',
                 scrollDown: 'Oder nach unten scrollen für Infos',
                 saveTheDetails: 'Speichert die Details für unseren besonderen Tag!',
-                timelineTitle: 'PROGRAMM',
+                timelineTitle: 'TAGESABLAUF',
+                downloadTimeline: 'Ablauf herunterladen',
                 event1Time: '14:45 Uhr',
                 event1Title: 'ANKUNFT IM STANDESAMT SCHÖNEBERG',
                 event1Desc: 'Bitte seid bis spätestens 14:45 Uhr da, damit die Trauung pünktlich beginnen kann.',
@@ -506,7 +506,6 @@
             },
             tr: {
                 pageTitle: "Cansu & Mark ♥ Nikah",
-                downloadTimeline: 'Programı İndir',
                 heroIntro1: 'Sevgili ailemiz ve dostlarımız,',
                 heroIntro2: 'Bizi özel bir gün bekliyor ve bu mutlu günü sizlerle paylaşmak istiyoruz.',
                 heroIntro3: 'Sizleri 12 Eylül 2026 tarihinde Berlin\'de gerçekleşecek resmî nikâhımıza ve ardından düzenlenecek kutlamamıza davet ediyoruz.',
@@ -515,7 +514,8 @@
                 rsvpLabel: 'Siz de aramızda olacak mısınız?',
                 scrollDown: 'Veya bilgi için aşağı kaydırın',
                 saveTheDetails: 'Özel günümüzün detaylarını kaydedin!',
-                timelineTitle: 'PROGRAM',
+                timelineTitle: 'GÜNÜN AKIŞI',
+                downloadTimeline: 'Akışı İndir',
                 event1Time: '14:45',
                 event1Title: 'Nikâh Dairesi’ne Varış - Standesamt Schöneberg',
                 event1Desc: 'Nikâh törenimizin zamanında başlayabilmesi için sizlerden en geç saat 14:45\'te orada olmanızı rica ediyoruz.',
