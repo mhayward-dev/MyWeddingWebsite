@@ -1537,7 +1537,8 @@ body {
 }
 
 .link-icon {
-    font-size: 1.1rem;
+    width: 1.1rem;
+    height: 1.1rem;
 }
 
 /* Directions Section Animations */
