@@ -7,7 +7,13 @@ const { google } = require("googleapis");
 // Set region for all functions
 setGlobalOptions({ region: "europe-west1" });
 
-admin.initializeApp();
+// Initialize admin only when not in deployment analysis phase
+// The FUNCTIONS_EMULATOR check prevents initialization during deployment
+if (process.env.FUNCTIONS_EMULATOR !== undefined || process.env.K_SERVICE) {
+  if (!admin.apps.length) {
+    admin.initializeApp();
+  }
+}
 
 // Define secrets - set via: firebase functions:secrets:set SECRET_NAME
 const telegramBotToken = defineSecret("TELEGRAM_BOT_TOKEN");
