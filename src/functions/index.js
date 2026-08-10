@@ -7,7 +7,10 @@ const { google } = require("googleapis");
 // Set region for all functions
 setGlobalOptions({ region: "europe-west1" });
 
-admin.initializeApp();
+// Only initialize admin if not already initialized (for emulator compatibility)
+if (!admin.apps.length) {
+  admin.initializeApp();
+}
 
 // Define secrets - set via: firebase functions:secrets:set SECRET_NAME
 const telegramBotToken = defineSecret("TELEGRAM_BOT_TOKEN");
