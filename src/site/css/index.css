@@ -1849,6 +1849,28 @@ body {
     font-style: italic;
 }
 
+.info-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 15px 0 0 0;
+    display: inline-block;
+}
+
+.info-link:hover {
+    background-color: var(--color-text);
+    transform: scale(1.05);
+}
+
 /* More Things Section Animations */
 .more-things-section .more-things-heart,
 .more-things-section .more-things-title,
